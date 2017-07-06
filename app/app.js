@@ -1,13 +1,22 @@
 import React from "react";
-import ReacctDOM from "react-dom";
+import ReactDOM from "react-dom";
+import { HashRouter, Route, Switch, Link } from 'react-router-dom';
+
+
+import Dashboard from './components/Dashboard';
 
 const App = () => {
 	return (
-		<h1>Hello Fam</h1>
+		<HashRouter>
+			<div>
+				<h1>Hello Fam</h1>
+				<Route exact path="/Dashboard" component={Dashboard} />
+			</div>
+		</HashRouter>
 	)
 }
 
-ReacctDOM.render(
+ReactDOM.render(
 	<App />,
 	document.getElementById("app")
 );
