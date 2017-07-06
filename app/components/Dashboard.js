@@ -19,8 +19,16 @@ class Dashboard extends Component {
             <div className="container">
                 <Header />
         	
-                <h1>Hello Dashboard</h1>
-                
+                <h1>Welcome, Username</h1>
+                <hr />
+                <div className="col-sm-2 offset-sm-2 dashboard-boards">Create Board</div>
+                <div className="col-sm-2 offset-sm-2 dashboard-boards">Join a Board</div>
+                <div className="col-sm-2 offset-sm-2 dashboard-boards">My Boards</div>
+                <div className="col-sm-2 offset-sm-2 dashboard-boards">Public Boards</div>
+                <div className="col-sm-2 offset-sm-2 dashboard-boards">Trending Boards</div>
+                <div className="col-sm-2 offset-sm-2 dashboard-boards">Saved Boards</div>
+                <br />
+                <hr />
 	        </div>
         )
     }
