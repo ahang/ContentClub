@@ -14,6 +14,7 @@ const App = () => {
 			<div>
 				<Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={Main} />
+                
 			</div>
 		</HashRouter>
 	)

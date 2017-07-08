@@ -3,12 +3,21 @@ body {
 	color: white;
 }
 
+p.left {
+	text-align: left;
+}
+
+p.right {
+	text-align: right;
+}
+
 #logo {
 	width: 60px;
 	height: auto;
 }
 
 .dashboard-boards {
+	width: vw;
 	height: 500px;
 	background-color: #2f3f4f;
 	border-left: solid;

@@ -18,17 +18,14 @@ class Dashboard extends Component {
         return(
             <div className="container">
                 <Header />
-        	
-                <h1>Welcome, Username</h1>
-                <hr />
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Create Board</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Join a Board</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">My Boards</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Public Boards</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Trending Boards</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Saved Boards</div>
+        	    <div>
+                    <h1><p className="left">Welcome, Username</p></h1><p className="right">Join a Board</p>
+                </div>
+                <div className="col-sm-3 offset-sm-3 dashboard-boards"><Link to="/create">Create Board</Link></div>
+                <div className="col-sm-3 offset-sm-3 dashboard-boards">My Boards</div>
+                <div className="col-sm-3 offset-sm-3 dashboard-boards">Public Boards</div>
+                <div className="col-sm-3 offset-sm-3 dashboard-boards">Saved Boards</div>
                 <br />
-                <hr />
 	        </div>
         )
     }
