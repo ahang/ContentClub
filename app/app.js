@@ -6,6 +6,7 @@ import { HashRouter, Route, Link } from 'react-router-dom';
 import Main from './components/Main';
 // to main dashboard
 import Dashboard from './components/Dashboard';
+import Register from "./components/auth/Register"
 
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
 		<HashRouter>
 			<div>
 				<Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/" component={Main} />
+				<Route exact path="/register" component={Register} />
+                <Route path="/" component={Main} />
 			</div>
 		</HashRouter>
 	)

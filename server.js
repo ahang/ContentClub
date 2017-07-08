@@ -1,9 +1,12 @@
 //Server Dependencies
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 
 const mongoose = require("mongoose");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 //Articles
 //const [NAME] = require("./models/[name]")
@@ -15,8 +18,24 @@ const PORT = process.env.PORT || 3000;
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+//Passport
+app.use(require("express-session")({
+	secret: "keyboardy cat",
+	resave: false,
+	saveUnitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Passport Config
+const Account = require("./models/account");
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 //using static public folder
 app.use(express.static("./public"));
@@ -37,14 +56,10 @@ app.use(express.static("./public"));
 // });
 
 //Importing Routes
-//const [name] = require("./controllers/[controller]");
+const auth = require("./controllers/authentication.js");
 
-//app.use("/", [name]);
+app.use("/", auth);
 
-//Initial Route, will be moved to controller file later
-app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/public/index.html");
-});
 
 app.listen(PORT, function() {
 	console.log(`Server Running on Port: ${PORT}`);
