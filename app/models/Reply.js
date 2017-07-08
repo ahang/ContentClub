@@ -21,8 +21,8 @@ var Reply = new Schema ({
 		minlength: 1
 	},
 	createdAt: {
-    type: Date,
-    default: Date.now
+	    type: Date,
+	    default: Date.now
   	}
 });
 
