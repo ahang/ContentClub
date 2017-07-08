@@ -1,5 +1,5 @@
 // ******************************************************************************
-// Comment.js 
+// Reply.js 
 //
 // ******************************************************************************
 // *** Dependencies
@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 // =============================================================
 var Schema = mongoose.Schema;
 
-var Comment = new Schema ({
+var Reply = new Schema ({
 	author: {
 		type: String,
 		required: true
@@ -23,20 +23,16 @@ var Comment = new Schema ({
 	createdAt: {
     type: Date,
     default: Date.now
-  	},
-  	replies: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Reply'
-	}]
+  	}
 });
 
 
 // =============================================================
 // *** Create Comment Model
 // =============================================================
-var Comment = mongoose.model('Comment', Comment);
+var Comment = mongoose.model('Reply', Reply);
 
 // =============================================================
-// *** Export the Comment Model
+// *** Export the Reply Model
 // =============================================================
-module.exports = Comment;
+module.exports = Reply;
