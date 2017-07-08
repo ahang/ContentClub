@@ -3,7 +3,7 @@ body {
 	color: white;	
 }
 
-div { border: solid; }
+/*div { border: solid; }*/
 
 p.left {
 	text-align: left;
@@ -43,6 +43,13 @@ p.right {
 	margin-top: -10px;
 }
 
+/* ----------- */
+/*  DASHBOARD  */
+/* ----------- */
+.img-boxart {
+	height: 350px;
+	width: auto;
+}
 
 .dashboard-boards {
 	/*width: vw;*/

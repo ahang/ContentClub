@@ -26,42 +26,42 @@ class Dashboard extends Component {
                 {/* ----- Board Examples ----- */}
 
                 <div className="full-board col-sm-3">Create Board
-                    <div className="board item card">Create Board
-                        <a className="title-name">Create Board
+                    <div className="board item card">
+                        <a className="title-name">
                             <figure className="board-img img-boxart">
-                                <img src="/public/css/images/matt-cannon-230683.jpg"/>
+                                <img className="img-boxart" src="css/images/matt-cannon-230683.jpg"/>
                             </figure>
                             <div className="board-body-text"> 
-                                <h3 className="board-title"></h3>
-                                <p className="board info"></p>
+                                <h3 className="board-title">Title Info</h3>
+                                <p className="board info">description</p>
                             </div>
                         </a>
                     </div>
                 </div>
                 
-                <div className="full-board col-sm-3">Create Board
-                    <div className="board item card">Create Board
-                        <a className="title-name">Create Board
+                <div className="full-board col-sm-3">My Boards
+                    <div className="board item card">
+                        <a className="title-name">
                             <figure className="board-img img-boxart">
-                                <img />
+                                <img className="img-boxart" src="css/images/matt-cannon-230683.jpg"/>
                             </figure>
                             <div className="board-body-text"> 
-                                <h3 className="board-title"></h3>
-                                <p className="board info"></p>
+                                <h3 className="board-title">Title Info</h3>
+                                <p className="board info">description</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <div className="full-board col-sm-3">Create Board
-                    <div className="board item card">Create Board
-                        <a className="title-name">Create Board
+                <div className="full-board col-sm-3">Saved Board
+                    <div className="board item card">
+                        <a className="title-name">
                             <figure className="board-img img-boxart">
                                 <img />
                             </figure>
                             <div className="board-body-text"> 
-                                <h3 className="board-title"></h3>
-                                <p className="board info"></p>
+                                <h3 className="board-title">Title Info</h3>
+                                <p className="board info">description</p>
                             </div>
                         </a>
                     </div>

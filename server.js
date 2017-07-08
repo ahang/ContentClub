@@ -20,7 +20,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 //using static public folder
 app.use(express.static("./public"));
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 //Mongoose - Commented for now
 // const databaseString = process.env.MONGODB_URI || "mongodb://localhost/ContentClub";
