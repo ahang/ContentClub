@@ -2,18 +2,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const HeaderUser = () => {
     return (                
-        <div className='container'>
+        <div>
             <nav className="navbar">
                 <a className='navbar-brand' href="/"> 
-                    <img id='logo' src='css/images/logo.png' />
+                    <div id="logo" className="circle"></div>
                 </a>
                 <ul className="nav nav-pills navbar-right">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li className="right">Join a Board
-                        <form><input className="join-board-form" type="text" name="boardcode"  /></form>
+                    <li><Link to="/">Messages</Link></li>
+                    <li className="right">
+                        <form><input className="join-board-form" type="text" name="boardcode" placeholder="Find a Board" /></form>
                     </li>
                 </ul>
             </nav>
@@ -21,4 +22,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default HeaderUser;
