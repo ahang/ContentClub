@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
+    console.log(req.body);
     Account.register(new Account(
         { username: req.body.username}),
         req.body.password,
@@ -17,8 +18,11 @@ router.post("/register", (req, res) => {
         }
 
         passport.authenticate("local")(req, res, () => {
-        })
-    })
-})
+            res.redirect("/");
+        });
+    });
+});
+
+
 
 module.exports = router;

@@ -15,10 +15,7 @@ class Main extends Component {
 
         return(
         	<div className="container">
-                <Header />
                 <h1>Hello Family</h1>
-                
-                
 	        </div>
         );
     }
