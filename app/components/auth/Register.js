@@ -7,6 +7,7 @@ class Register extends Component {
 	render() {
 		return(
 			<div>
+                <p>Hello</p>
 			</div>
 		)
 	}

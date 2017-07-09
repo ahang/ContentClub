@@ -41,19 +41,19 @@ passport.deserializeUser(Account.deserializeUser());
 app.use(express.static("./public"));
 
 //Mongoose - Commented for now
-// const databaseString = process.env.MONGODB_URI || "mongodb://localhost/ContentClub";
+const databaseString = process.env.MONGODB_URI || "mongodb://localhost/ContentClub";
 
-// mongoose.Promise = Promise;
-// mongoose.connect(databaseString);
-// const db = mongoose.connection;
+mongoose.Promise = Promise;
+mongoose.connect(databaseString);
+const db = mongoose.connection;
 
-// db.on("error", function(err) {
-// 	console.log("Mongoose Error: ", err);
-// });
+db.on("error", function(err) {
+	console.log("Mongoose Error: ", err);
+});
 
-// db.once("open", function() {
-// 	console.log("Mongoose connection successful.");
-// });
+db.once("open", function() {
+	console.log("Mongoose connection successful.");
+});
 
 //Importing Routes
 const auth = require("./controllers/authentication.js");

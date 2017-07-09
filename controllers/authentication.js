@@ -3,8 +3,22 @@ const passport = require("passport");
 const Account = require("../models/account");
 const router = express.Router();
 
-router.get("/", function(req, res) {
+router.get("/", (req, res) => {
 	res.sendFile(__dirname + "/public/index.html");
 });
+
+router.post("/register", (req, res) => {
+    Account.register(new Account(
+        { username: req.body.username}),
+        req.body.password,
+        (err, account) => {
+            if (err) {
+                return res.send({ account : account });
+        }
+
+        passport.authenticate("local")(req, res, () => {
+        })
+    })
+})
 
 module.exports = router;
