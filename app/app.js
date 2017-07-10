@@ -18,6 +18,7 @@ const App = () => {
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/register" component={Register} />
                 <Route exact path="/" component={Main} />
+                
 			</div>
 		</HashRouter>
 	)
