@@ -13,9 +13,6 @@ const Header = () => {
                 <ul className="nav nav-pills navbar-right">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li className="right">Join a Board
-                        <form><input className="join-board-form" type="text" name="boardcode"  /></form>
-                    </li>
                     <li><Link to="/register">Register</Link></li>
                 </ul>
             </nav>

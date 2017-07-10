@@ -18,7 +18,6 @@ class Dashboard extends Component {
 
         return(
             <div className="container">
-                <Header />
                 <h1><p className="col-sm-6 left">Welcome, Username</p></h1>
         	    <div className="row" id="welcome">
                 </div>
