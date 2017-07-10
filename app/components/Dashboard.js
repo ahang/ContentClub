@@ -79,6 +79,7 @@ class Dashboard extends Component {
                         <div>Saved Boards</div>
                     </div>
                 </div>*/}
+
                 <br />
 	        </div>
         )
