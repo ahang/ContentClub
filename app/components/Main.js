@@ -8,7 +8,7 @@ import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 // Static Bars
 // ----------------------------
 // import Header from './layout/Header';
-import HeaderUser from './layout/HeaderUser';
+import Header from './layout/Header';
 // import Footer from './layout/Footer';
 
 class Main extends Component {
@@ -16,10 +16,9 @@ class Main extends Component {
 
         return(
         	<div className="container">
-                <HeaderUser />
+
+                <Header />
                 <h1>Hello Family</h1>
-                
-                
 	        </div>
         );
     }

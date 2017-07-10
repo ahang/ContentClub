@@ -18,7 +18,7 @@ class Dashboard extends Component {
 
         return(
             <div className="container">
-                <HeaderUser />
+                <Header />
                 <h1><p className="col-sm-6 left">Welcome, Username</p></h1>
         	    <div className="row" id="welcome">
                 </div>
@@ -52,7 +52,6 @@ class Dashboard extends Component {
                         </a>
                     </div>
                 </div>
-
                 <div className="full-board col-sm-3">Saved Board
                     <div className="board item card">
                         <a className="title-name">
@@ -66,10 +65,6 @@ class Dashboard extends Component {
                         </a>
                     </div>
                 </div>
-
-
-
-
                 {/* <div className="row">
                     <div>
                         <div className="col-sm-3 offset-sm-3 dashboard-boards"><Link to="/create"></Link></div>
