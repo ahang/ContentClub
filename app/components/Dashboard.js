@@ -17,9 +17,7 @@ class Dashboard extends Component {
 
         return(
             <div className="container">
-                <Header />
-        	    <div>
-                    <h1><p className="left">Welcome, Username</p></h1><p className="right">Join a Board</p>
+                <h1><p className="left">Welcome, Username</p></h1><p className="right">Join a Board</p>
                 </div>
                 <div className="col-sm-3 offset-sm-3 dashboard-boards"><Link to="/create">Create Board</Link></div>
                 <div className="col-sm-3 offset-sm-3 dashboard-boards">My Boards</div>
