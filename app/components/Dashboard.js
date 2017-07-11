@@ -4,22 +4,20 @@
 import React, {Component} from 'react';
 import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 
-
 // ----------------------------
 // Static Bars
 // ----------------------------
 
+// import HeaderUser from './layout/HeaderUser';
 
-import HeaderUser from './layout/HeaderUser';
-// import Footer from './layout/Footer';
 
 class Dashboard extends Component {
-	render() {
+    render() {
 
         return(
             <div className="container">
                 <h1><p className="col-sm-6 left">Welcome, Username</p></h1>
-        	    <div className="row" id="welcome">
+                <div className="row" id="welcome">
                 </div>
 
                 {/* ----- Board Examples ----- */}
@@ -64,7 +62,8 @@ class Dashboard extends Component {
                         </a>
                     </div>
                 </div>
-                {/* <div className="row">
+            {/* 
+                <div className="row">
                     <div>
                         <div className="col-sm-3 offset-sm-3 dashboard-boards"><Link to="/create"></Link></div>
                         <div className="row">Create Board</div>
@@ -77,10 +76,11 @@ class Dashboard extends Component {
                         <div className="col-sm-3 offset-sm-3 dashboard-boards"></div>
                         <div>Saved Boards</div>
                     </div>
-                </div>*/}
+                </div>
+            */}
 
                 <br />
-	        </div>
+            </div>
         )
     }
 }
