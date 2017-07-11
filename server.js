@@ -1,6 +1,5 @@
 //Server Dependencies
 const express = require("express");
-const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 
@@ -8,8 +7,6 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-//Articles
-//const [NAME] = require("./models/[name]")
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,22 +14,18 @@ const PORT = process.env.PORT || 3000;
 //logging and setting up bodyparser
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(bodyParser.json({ type: "*/*" }));
 
 //Passport
-app.use(require("express-session")({
-	secret: "keyboardy cat",
-	resave: false,
-	saveUnitialized: false
-}))
-app.use(passport.initialize());
-app.use(passport.session());
+const localSignupStrategy = require("./server/passport/local-signup");
+const localSigninStrategy = require("./server/passport/local-login");
+passport.use("local-signup", localSignupStrategy);
+passport.user("local-login", localSigninStrategy);
 
 //Passport Config
-const Account = require("./models/account");
+const Account = require("./server/models/account");
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
@@ -57,9 +50,11 @@ db.once("open", function() {
 });
 
 //Importing Routes
-const auth = require("./controllers/authentication.js");
+const authRoutes = require("./server/controllers/authentication");
+const apiRoutes = require("./server/controllers/api")
 
-app.use("/", auth);
+app.use("/auth", authRoutes);
+app.use("/api", apiRoutes);
 
 
 app.listen(PORT, function() {
