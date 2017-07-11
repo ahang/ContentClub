@@ -6,6 +6,7 @@ import { HashRouter, Route, Link } from 'react-router-dom';
 import Main from './components/Main';
 // to main dashboard
 import Dashboard from './components/Dashboard';
+import Form from './components/Form';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
 			<div>
 				<Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={Main} />
+                <Route exact path="/form" component={Form} />
 			</div>
 		</HashRouter>
 	)
