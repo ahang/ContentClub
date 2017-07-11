@@ -9,7 +9,8 @@ import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 // Static Bars
 // ----------------------------
 
-import Header from './layout/Header';
+
+import HeaderUser from './layout/HeaderUser';
 // import Footer from './layout/Footer';
 
 class Dashboard extends Component {
@@ -17,18 +18,68 @@ class Dashboard extends Component {
 
         return(
             <div className="container">
-                <Header />
-        	
-                <h1>Welcome, Username</h1>
-                <hr />
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Create Board</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Join a Board</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">My Boards</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Public Boards</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Trending Boards</div>
-                <div className="col-sm-2 offset-sm-2 dashboard-boards">Saved Boards</div>
+                <h1><p className="col-sm-6 left">Welcome, Username</p></h1>
+        	    <div className="row" id="welcome">
+                </div>
+
+                {/* ----- Board Examples ----- */}
+
+                <div className="full-board col-sm-3">Create Board
+                    <div className="board item card">
+                        <a className="title-name">
+                            <figure className="board-img img-boxart">
+                                <img className="img-boxart" src="css/images/matt-cannon-230683.jpg"/>
+                            </figure>
+                            <div className="board-body-text"> 
+                                <h3 className="board-title">Title Info</h3>
+                                <p className="board info">description</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div className="full-board col-sm-3">My Boards
+                    <div className="board item card">
+                        <a className="title-name">
+                            <figure className="board-img img-boxart">
+                                <img className="img-boxart" src="css/images/matt-cannon-230683.jpg"/>
+                            </figure>
+                            <div className="board-body-text"> 
+                                <h3 className="board-title">Title Info</h3>
+                                <p className="board info">description</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div className="full-board col-sm-3">Saved Board
+                    <div className="board item card">
+                        <a className="title-name">
+                            <figure className="board-img img-boxart">
+                                <img />
+                            </figure>
+                            <div className="board-body-text"> 
+                                <h3 className="board-title">Title Info</h3>
+                                <p className="board info">description</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {/* <div className="row">
+                    <div>
+                        <div className="col-sm-3 offset-sm-3 dashboard-boards"><Link to="/create"></Link></div>
+                        <div className="row">Create Board</div>
+                    </div>
+                    <div>
+                        <div className="col-sm-3 offset-sm-3 dashboard-boards"></div> 
+                        <div>My Boards</div>
+                    </div>
+                    <div>
+                        <div className="col-sm-3 offset-sm-3 dashboard-boards"></div>
+                        <div>Saved Boards</div>
+                    </div>
+                </div>*/}
+
                 <br />
-                <hr />
 	        </div>
         )
     }

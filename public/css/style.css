@@ -1,19 +1,64 @@
 body {
 	background-color: #2f3f4f;
+	color: white;	
+}
+
+/*div { border: solid; }*/
+
+p.left {
+	text-align: left;
+}
+
+p.right {
+	text-align: right;
+}
+
+
+/* ---------- */
+/* 	 HEADER   */
+/* ---------- */
+#welcome {
+	padding: 50px;
+}
+
+#header {
+	
+}
+
+.join-board-form {
+	color: black;
+}
+
+.circle {
+	border-radius: 50%;	
+	width: 60px;
+	height: 60px; 
 	color: white;
+	border: solid;
 }
 
 #logo {
-	width: 60px;
-	height: auto;
+	/*width: 60px;
+	height: auto;*/
+	margin-top: -10px;
+}
+
+/* ----------- */
+/*  DASHBOARD  */
+/* ----------- */
+.img-boxart {
+	height: 350px;
+	width: auto;
 }
 
 .dashboard-boards {
+	/*width: vw;*/
 	height: 500px;
-	background-color: #2f3f4f;
-	border-left: solid;
-	border-right: solid;
-	border-width: .11px;
+	background-color: darkgrey;
+	margin: 2px;
+	/*border-left: solid;*/
+	/*border-right: solid;*/
+	/*border-width: .05px;*/
 	transition: .25s;
 	vertical-align: center;
 	text-align: center;
