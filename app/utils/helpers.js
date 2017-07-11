@@ -20,7 +20,7 @@ const helpers = {
 	},
 
 	getBoards () {
-		return axios.get("/api/board");
+		return axios.get("/api/boards");
 	},
 
 	deleteBoard (board) {
