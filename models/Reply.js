@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 // =============================================================
 var Schema = mongoose.Schema;
 
-var Reply = new Schema ({
+var newReply = new Schema ({
 	author: {
 		type: String,
 		required: true
@@ -28,9 +28,9 @@ var Reply = new Schema ({
 
 
 // =============================================================
-// *** Create Comment Model
+// *** Create Reply Model
 // =============================================================
-var Comment = mongoose.model('Reply', Reply);
+var Reply = mongoose.model('Reply', newReply);
 
 // =============================================================
 // *** Export the Reply Model

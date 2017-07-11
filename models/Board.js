@@ -1,5 +1,5 @@
 // ******************************************************************************
-// Comment.js 
+// Board.js 
 //
 // ******************************************************************************
 // *** Dependencies
@@ -11,32 +11,39 @@ var mongoose = require('mongoose');
 // =============================================================
 var Schema = mongoose.Schema;
 
-var newComment = new Schema ({
-	author: {
+var newBoard = new Schema ({
+	boardTitle: {
 		type: String,
 		required: true
 	},
-	text: {
+	category: {
 		type: String,
-		minlength: 1
+		required: true
 	},
-	createdAt: {
-	    type: Date,
-	    default: Date.now
-  	},
-  	replies: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Reply'
-	}]
+	contentURL: {
+		type: String,
+		required: true
+	},
+	contentDescription: {
+		type: String,
+		required: true
+	},
+	openUntil: {
+		type: Date,
+	},
+	isPublic: {
+	    type: Boolean,
+	    default: true
+  	}
 });
 
 
 // =============================================================
-// *** Create Comment Model
+// *** Create Board Model
 // =============================================================
-var Comment = mongoose.model('Comment', newComment);
+var Board = mongoose.model('Board', newBoard);
 
 // =============================================================
-// *** Export the Comment Model
+// *** Export the Board Model
 // =============================================================
-module.exports = Comment;
+module.exports = Board;
