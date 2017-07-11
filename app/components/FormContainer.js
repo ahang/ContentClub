@@ -3,6 +3,7 @@
 // ----------------------------
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import helpers from "../utils/helpers"
 
 
 class FormContainer extends Component {
@@ -72,6 +73,8 @@ class FormContainer extends Component {
       openUntil: this.state.openUntil,
       isPublic: this.state.isPublic     
     };
+    helpers.saveBoard(boardSubmit)
+      .then((result) => {}
     console.log('new form was created:', boardSubmit);
   }
   
