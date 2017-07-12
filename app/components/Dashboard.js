@@ -25,10 +25,10 @@ class Dashboard extends Component {
                 {/* ----- Board Examples ----- */}
 
                 <div className="full-board col-sm-3">Create Board
-                    <div className="board item card">
+                    <div className="board item card img-boxart">
                         <a className="title-name">
                             <figure className="board-img img-boxart">
-                                <img className="img-boxart" src="css/images/matt-cannon-230683.jpg"/>
+                                <img className="" src="css/images/matt-cannon-230683.jpg"/>
                             </figure>
                             <div className="board-body-text"> 
                                 <h3 className="board-title">Title Info</h3>

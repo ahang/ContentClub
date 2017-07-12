@@ -1,14 +1,18 @@
 body {
 	background-color: #2f3f4f;
 	color: white;	
+	text-decoration: none;
+	text-decoration-color: white;
 }
 
 /*div { border: solid; }*/
 
-p.left {
+p.left,
+a.left {
 	text-align: left;
 }
 
+p.right,
 p.right {
 	text-align: right;
 }
@@ -46,10 +50,35 @@ p.right {
 /* ----------- */
 /*  DASHBOARD  */
 /* ----------- */
-.img-boxart {
+.board-title,
+.board-info, 
+.board-username {
+	color: white;
+	text-align: left;
+	margin: 10px;
+}
+
+.board-username {
+	color: tomato;
+}
+
+.board-body-text {
+	width: 200px;
+	height: 150px;
+}
+
+.img-art {
 	height: 350px;
 	width: auto;
 }
+
+.img-boxart {
+	height: 350px;
+	width: 200px;
+	overflow: hidden;
+	margin: 5px;
+}
+
 
 .dashboard-boards {
 	/*width: vw;*/
@@ -73,7 +102,7 @@ p.right {
 	/*width: 200px;*/
 	background-color: mistyrose;
 	transition: .5s;
-	color: #2f3f4f;
+	/*color: #2f3f4f;*/
 	z-index: 3;
 
 } 
