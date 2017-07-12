@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 // ----------------------------
-// Static Bars
+// Static Dependencie
 // ----------------------------
 import FormContainer from './FormContainer';
 

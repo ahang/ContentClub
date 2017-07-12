@@ -7,7 +7,6 @@ import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 // ----------------------------
 // Static Bars
 // ----------------------------
-// import Header from './layout/Header';
 import Header from './layout/Header';
 // import Footer from './layout/Footer';
 
