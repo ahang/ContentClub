@@ -73,9 +73,9 @@ class FormContainer extends Component {
       openUntil: this.state.openUntil,
       isPublic: this.state.isPublic     
     };
-    // helpers.saveBoard(boardSubmit)
-    //   .then((result) => {}
-    // console.log('new form was created:', boardSubmit);
+    helpers.saveBoard(boardSubmit)
+      .then((result) => {}
+    console.log('new form was created:', boardSubmit));
   }
   
   render() {
