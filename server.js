@@ -49,8 +49,11 @@ db.once("open", function() {
 	console.log("Mongoose connection successful.");
 });
 
+const authCheckMiddleware = require('./server/middleware/auth-check');
+app.use('/api', authCheckMiddleware);
+
 //Importing Routes
-const authRoutes = require("./server/controllers/authentication");
+const authRoutes = require("./server/controllers/auth");
 const apiRoutes = require("./server/controllers/api")
 
 app.use("/auth", authRoutes);

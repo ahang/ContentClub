@@ -8,10 +8,10 @@ const Account = new Schema({
 	password: String
 });
 
-Account.methods.comparePassword = comparePassword(password, callback) => { bcrypt.compare(password, this.password, callback);
+Account.methods.comparePassword = function comparePassword(password, callback) { bcrypt.compare(password, this.password, callback);
 };
 
-Account.pre("save", saveHook(next) => {
+Account.pre("save", function saveHook(next) {
 	const user = this;
 
 	if (!user.isModified("password")) return next();

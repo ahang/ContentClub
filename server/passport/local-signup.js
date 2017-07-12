@@ -10,12 +10,11 @@ module.exports = new PassportLocalStrategy({
 	const accountData = {
 		username: username.trim(),
 		password: password.trim(),
-  };
+    };
 
-  const newAccount = new Account(accountData);
-  newAccount.save((err) => {
-    if (err) { return done(err); }
-
-    return done(null);
-  });
+    const newAccount = new Account(accountData);
+    newAccount.save((err) => {
+        if (err) { return done(err); }
+        return done(null);
+    });
 });
