@@ -2,11 +2,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-
 const mongoose = require("mongoose");
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const config = require("./config");
 
+require("./server/models").connect(config.dbUri);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,44 +18,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "*/*" }));
 
-//Passport
+app.use(passport.initialize());
 const localSignupStrategy = require("./server/passport/local-signup");
-const localSigninStrategy = require("./server/passport/local-login");
+const localLoginStrategy = require("./server/passport/local-login");
 passport.use("local-signup", localSignupStrategy);
-passport.user("local-login", localSigninStrategy);
+passport.use("local-login", localLoginStrategy);
 
-//Passport Config
-const Account = require("./server/models/account");
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
+const authCheckMiddleware = require("./server/middleware/auth-check");
+app.use("/api", authCheckMiddleware);
 
 //using static public folder
-app.use(express.static("./public"));
-
-
-//Mongoose - Commented for now
-const databaseString = process.env.MONGODB_URI || "mongodb://localhost/ContentClub";
-
-mongoose.Promise = Promise;
-mongoose.connect(databaseString);
-const db = mongoose.connection;
-
-db.on("error", function(err) {
-	console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function() {
-	console.log("Mongoose connection successful.");
-});
-
-const authCheckMiddleware = require('./server/middleware/auth-check');
-app.use('/api', authCheckMiddleware);
+app.use(express.static("../public"));
 
 //Importing Routes
-const authRoutes = require("./server/controllers/auth");
+const authRoutes = require("./server/controllers/auth.js");
 const apiRoutes = require("./server/controllers/api")
-
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
 

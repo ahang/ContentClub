@@ -3,7 +3,7 @@ const validator = require("validator");
 const passport = require('passport');
 const router =  new express.Router();
 
-function validateSignupForm(payload) => {
+function validateSignupForm(payload) {
     const errors = {};
     let isFormValid = true;
     let message = "";
@@ -29,7 +29,7 @@ function validateSignupForm(payload) => {
     };
 }
 
-function validateLoginForm(payload) => {
+function validateLoginForm(payload) {
     const errors = {};
     let isFormValid = true;
     let message = ""
@@ -79,7 +79,7 @@ router.post("/signup", (req, res, next) => {
             return res.status(400).json({
                 success: false,
                 message: "Could not process the form"
-            })l
+            })
         }
         return res.status(200).json({
             success: true,

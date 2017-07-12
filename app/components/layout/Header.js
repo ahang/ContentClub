@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../auth/Auth";
 
 const Header = () => {
 
@@ -15,6 +16,16 @@ const Header = () => {
                     <li><Link to="/dashboard">Dashboard</Link></li>
                     <li><Link to="/register">Register</Link></li>
                 </ul>
+                {Auth.isUserAuthenticated() ? (
+                    <div className="top-bar-right">
+                        <Link to="/logout">Log out</Link>
+                    </div>
+                ): (
+                    <div className="top-bar-right">
+                        <Link to ="/login">Login</Link>
+                        <Link to="/signup">Sign up</Link>
+                    </div>
+                )}
             </nav>
         </div>
     )
