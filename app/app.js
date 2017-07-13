@@ -18,7 +18,6 @@ import Dashboard from './components/Dashboard';
 import Form from './components/Form';
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import CreateImages from "./components/CreateImages";
 
 // ----------------------------
 // Data
@@ -30,13 +29,12 @@ const App = () => {
 		<HashRouter>
 			<div>
 				<Header />
-				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
                 <Route exact path="/" component={Main} />
                 <Route exact path="/form" component={Form} />
-                <Route exact path="/createimages" render={ (props) => (
-                	<CreateImages {...props} data={Data} />
+                <Route exact path="/dashboard" render={ (props) => (
+                	<Dashboard {...props} data={Data} />
                 )} />
 			</div>
 		</HashRouter>
