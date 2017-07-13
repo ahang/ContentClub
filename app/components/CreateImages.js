@@ -12,16 +12,18 @@ class CreateImages extends Component {
     generateImage () {
         return this.props.data.map( (board) => {
             return (
-               <div className="full-board col-sm-3" key={board.title}>
+               <div className="full-board col-sm-3" key={board.boardTitle}>
                     <div className="board item card">
                         <a className="title-name">
                             <figure className="board-img img-boxart">
-                                <img className="img-art" src={board.img} alt={`Image of ${board.title}`} />
+                                <img className="img-art" src={board.img} alt={board.contentDescription} title={board.contentDescription}/>
                             </figure>
                             <div className="board-body-text"> 
-                                <h3 className="board-title">{board.title}</h3>
-                                <p className="board-info">{board.description}</p>
-                                <a href="#" className="board-username left">{board.username}</a>
+                                <h3 className="board-title">{board.boardTitle}</h3>
+                                <p className="board-info">{board.category}</p>
+                                <br />
+                                <a href={board.contentUrl} className="board-username left">{board.username}</a>
+
                             </div>
                         </a>
                     </div>
