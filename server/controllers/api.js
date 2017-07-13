@@ -7,8 +7,4 @@ router.get("/dashboard", (req, res) => {
     });
 });
 
-router.get("/", (req, res) => {
-	res.sendFile(__dirname + "./public/index.html");
-});
-
 module.exports = router;
