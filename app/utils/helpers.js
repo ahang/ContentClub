@@ -16,7 +16,7 @@ const helpers = {
 	saveBoard (board) {
 		//console.log(board)
 		console.log(board.boardTitle, board.category, board.contentURL, board.contentDescription, board.openUntil, board.isPublic)
-		return axios.post("/api/save/board", board)
+		return axios.post("/api/boards", board)
 	},
 
 	getBoards () {

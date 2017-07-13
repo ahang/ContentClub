@@ -79,7 +79,7 @@ class FormContainer extends Component {
   
   render() {
       return (
-    <div class="search-container">
+    <div className="search-container">
     <div className="panel-heading">
     <h3 className="panel-title">Please provide the following information</h3>
     </div>
@@ -107,10 +107,10 @@ class FormContainer extends Component {
      <center> Open Until: </center><input type="date" className="form-control" value={this.state.openUntil} onChange={this.handleOpenUntil} />
     </div>
     <div className="form-group">
-      <form>
+      {/*<form>
         <input type="radio" name="public-private" value="public" checked /> Public
         <input type="radio" name="public-private" value="private" /> Private
-      </form> 
+      </form> */}
     </div>
 
 

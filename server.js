@@ -58,8 +58,11 @@ db.once("open", function() {
 
 //Importing Routes
 const auth = require("./controllers/authentication.js");
+const routes = require("./controllers/routes.js");
 
 app.use("/", auth);
+app.use("/api", routes);
+
 
 
 app.listen(PORT, function() {
