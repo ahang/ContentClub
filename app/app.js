@@ -23,6 +23,7 @@ import Login from "./components/auth/Login";
 // Data
 // ----------------------------
 import Data from '../data.json';
+import userData from '../userdata.json';
 
 const App = () => {
 	return (
@@ -31,11 +32,12 @@ const App = () => {
 				<Header />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
-                <Route exact path="/" component={Main} />
+                <Route exact path="/"  render={ (props) => (
+                	<Main {...props} data={Data} />)} />
                 <Route exact path="/form" component={Form} />
                 <Route exact path="/dashboard" render={ (props) => (
-                	<Dashboard {...props} data={Data} />
-                )} />
+                	<Dashboard {...props} data={userData} />)} />
+                
 			</div>
 		</HashRouter>
 	)

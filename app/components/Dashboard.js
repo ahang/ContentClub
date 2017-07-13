@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 
 
 class Dashboard extends Component {
-    constructor(props) {
+        constructor(props) {
         super(props);
     }
 
@@ -42,6 +42,7 @@ class Dashboard extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         { /* This is what actually generates the images */ }
+                        <h1>My Uploaded Boards</h1>
                         { this.generateImage() }
                     </div>
                 </div>

@@ -12,8 +12,8 @@
     "boardTitle": "Spiderman 2 Trailer",
     "img": "https://images.unsplash.com/photo-1486977712905-f45ea8be90ca?dpr=2&auto=format&fit=crop&w=1080&h=1620&q=80&cs=tinysrgb&crop=",
     "category": "Film",
-    "contentUrl":"#",
-    "username":"theBestUser",
+    "contentUrl":"/#/dashboard",
+    "username":"AlitaPetita",
     "contentDescription":""
   },
 
@@ -21,8 +21,8 @@
     "boardTitle": "Fire Thrower",
     "img": "https://images.unsplash.com/photo-1470020618177-f49a96241ae7?dpr=2&auto=format&fit=crop&w=1080&h=1618&q=80&cs=tinysrgb&crop=",
     "category": "Entertainment",
-    "contentUrl":"#",
-    "username":"PM_ME_NUDES",
+    "contentUrl":"/#/dashboard",
+    "username":"AlitaPetita",
     "contentDescription":""
   },
   
@@ -66,7 +66,7 @@
     "boardTitle": "Ender's Game ",
     "img": "http://www.hatrack.com/osc/books/endersgame/endersgame.jpg",
     "category": "Books",
-    "contentUrl":"#",
+    "contentUrl":"/#/dashboard",
     "username":"AlitaPetita",
     "contentDescription":""
   }
