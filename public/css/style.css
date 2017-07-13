@@ -58,6 +58,12 @@ p.right {
 	margin: 10px;
 }
 
+.board-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .board-username {
 	color: tomato;
 }
