@@ -7,19 +7,36 @@ import Main from './components/Main';
 import Header from "./components/layout/Header"
 // to main dashboard
 import Dashboard from './components/Dashboard';
-import Register from "./components/auth/Register"
-import Login from "./components/auth/Login"
+import Form from './components/Form';
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 
+// import './public/css/index.scss';
+require("!style-loader!css-loader!sass-loader!../public/css/index.scss");
+
+// ----------------------------
+// Data
+// ----------------------------
+import Data from '../data.json';
+import userData from '../userdata.json';
 
 const App = () => {
 	return (
 		<HashRouter>
 			<div>
 				<Header />
-				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
+<<<<<<< HEAD
                 <Route exact path="/" component={Main} />
+=======
+                <Route exact path="/"  render={ (props) => (
+                	<Main {...props} data={Data} />)} />
+                <Route exact path="/form" component={Form} />
+                <Route exact path="/dashboard" render={ (props) => (
+                	<Dashboard {...props} data={userData} />)} />
+                
+>>>>>>> master
 			</div>
 		</HashRouter>
 	)
