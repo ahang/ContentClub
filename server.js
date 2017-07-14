@@ -29,17 +29,12 @@ app.use("/api", authCheckMiddleware);
 
 //using static public folder
 app.use(express.static('./server/static/'));
-app.use(express.static('./client/dist/'));
 
 //Importing Routes
 const authRoutes = require("./server/controllers/auth.js");
 const apiRoutes = require("./server/controllers/api")
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
-
-app.get("/", (req, res) => {
-	res.sendFile(__dirname + "./public/index.html");
-});
 
 app.listen(PORT, function() {
 	console.log(`Server Running on Port: ${PORT}`);

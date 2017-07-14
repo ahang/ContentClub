@@ -20,7 +20,6 @@ const App = () => {
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
                 <Route exact path="/" component={Main} />
-                
 			</div>
 		</HashRouter>
 	)

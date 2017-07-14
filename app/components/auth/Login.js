@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Auth from "./Auth"
 
 class Login extends Component {
 	constructor(props) {
@@ -7,7 +8,8 @@ class Login extends Component {
 
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			response: null,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,11 +18,12 @@ class Login extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		axios.post("/login", {
+		axios.post("/auth/login", {
 			"username": this.state.username,
 			"password": this.state.password
 		}).then((response) => {
-
+			console.log(JSON.stringify(response));
+			Auth.authenticateUser(response.data.token);
 		})
 	}
 
