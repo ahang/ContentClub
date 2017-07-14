@@ -12,7 +12,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
 // import './public/css/index.scss';
-require("!style-loader!css-loader!sass-loader!../public/css/index.scss");
+require("!style-loader!css-loader!sass-loader!../server/static/css/index.scss");
 
 // ----------------------------
 // Data
@@ -27,16 +27,11 @@ const App = () => {
 				<Header />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
-<<<<<<< HEAD
-                <Route exact path="/" component={Main} />
-=======
                 <Route exact path="/"  render={ (props) => (
                 	<Main {...props} data={Data} />)} />
                 <Route exact path="/form" component={Form} />
                 <Route exact path="/dashboard" render={ (props) => (
                 	<Dashboard {...props} data={userData} />)} />
-                
->>>>>>> master
 			</div>
 		</HashRouter>
 	)
