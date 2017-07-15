@@ -16,7 +16,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='row container'>
+            <div className='row'>
                 <nav className="navbar">
                     <a className='navbar-brand' href="/">
                         <img id='logo' src='css/images/logo-white-sm.png' />
