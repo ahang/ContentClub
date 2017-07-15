@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Auth from "./Auth"
 
@@ -10,6 +11,7 @@ class Login extends Component {
 			username: "",
 			password: "",
 			response: null,
+			redirect: false
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +26,7 @@ class Login extends Component {
 		}).then((response) => {
 			console.log(JSON.stringify(response));
 			Auth.authenticateUser(response.data.token);
+			this.setState({ redirect: true });
 		})
 	}
 
@@ -38,6 +41,10 @@ class Login extends Component {
 	}
 
 	render() {
+		const { redirect } = this.state;
+		if (redirect) {
+			return <Redirect to="/" />;
+		}
 		return(
 			<div>
 				<form className="form-group col-md-4 col-md-offset-4" onSubmit={this.handleSubmit}>

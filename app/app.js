@@ -27,11 +27,11 @@ const App = () => {
 				<Header />
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
-                <Route exact path="/"  render={ (props) => (
-                	<Main {...props} data={Data} />)} />
                 <Route exact path="/form" component={Form} />
                 <Route exact path="/dashboard" render={ (props) => (
                 	<Dashboard {...props} data={userData} />)} />
+                <Route exact path="/"  render={ (props) => (
+                    <Main {...props} data={Data} />)} />
 			</div>
 		</HashRouter>
 	)
