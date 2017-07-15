@@ -18,7 +18,7 @@ class Dashboard extends Component {
             return (
                <div className="full-board col-sm-3" key={board.boardTitle}>
                     <div className="board item card">
-                        <a className="title-name">
+                        <div className="title-name">
                             <figure className="board-img img-boxart">
                                 <img className="img-art" src={board.img} alt={board.contentDescription} title={board.contentDescription}/>
                             </figure>
@@ -29,7 +29,7 @@ class Dashboard extends Component {
                                 <a href={board.contentUrl} className="board-username left">{board.username}</a>
 
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>                 
             )
