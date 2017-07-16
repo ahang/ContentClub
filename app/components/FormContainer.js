@@ -11,7 +11,7 @@ class FormContainer extends Component {
     super(props);
     this.state = {
       boardTitle: '',
-      category: '',
+      category: 'entertainment',
       contentURL: '',
       contentDescription: '',
       openUntil: '',
@@ -79,7 +79,7 @@ class FormContainer extends Component {
   
   render() {
       return (
-    <div class="search-container">
+    <div className="search-container">
     <div className="panel-heading">
     <h3 className="panel-title">Please provide the following information</h3>
     </div>
@@ -106,15 +106,7 @@ class FormContainer extends Component {
     <div className="form-group">
      <center> Open Until: </center><input type="date" className="form-control" value={this.state.openUntil} onChange={this.handleOpenUntil} />
     </div>
-    <div className="form-group">
-      <form>
-        <input type="radio" name="public-private" value="public" checked /> Public
-        <input type="radio" name="public-private" value="private" /> Private
-      </form> 
-    </div>
-
-
-
+    
     <div className="form-group">
       <button className="btn btn-primary" type="submit" onClick={this.handleFormSubmit}>Submit</button>
       <button className="btn btn-primary" onClick={this.handleClearForm}>Clear</button>
