@@ -32,9 +32,11 @@ app.use(express.static('./server/static/'));
 
 //Importing Routes
 const authRoutes = require("./server/controllers/auth.js");
-const apiRoutes = require("./server/controllers/api")
+const apiRoutes = require("./server/controllers/api");
+const routes = require("./server/controllers/routes.js");
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
+app.use("/", routes);
 
 app.listen(PORT, function() {
 	console.log(`Server Running on Port: ${PORT}`);

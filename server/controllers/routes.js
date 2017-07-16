@@ -20,4 +20,20 @@ router.get("/api/boards", function(req, res) {
   	});
 });
 
+router.post("/boards", function(req, res) {
+
+	const newBoard = new Board(req.body);
+	console.log(req.body);
+
+    newBoard.save((err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data)
+            res.end();
+        }
+
+    });
+});
+
 module.exports = router;
