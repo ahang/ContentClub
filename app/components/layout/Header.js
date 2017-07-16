@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Auth from "../auth/Auth";
+import jwtDecode from "jwt-decode";
 
 class Header extends Component {
     constructor(props) {
@@ -11,18 +12,24 @@ class Header extends Component {
 
     handleOnClick() {
         Auth.deauthenticateUser();
-
+    }
+    getUserName() {
+        const token = localStorage.getItem("token");
+        const decodeToken = jwtDecode(token);
+        console.log(decodeToken);
+        return decodeToken.name;
     }
 
     render() {
         return (
-            <div className='row container'>
+            <div className='row'>
                 <nav className="navbar">
                     <a className='navbar-brand' href="/">
                         <img id='logo' src='css/images/logo-white-sm.png' />
                     </a>
                     {Auth.isUserAuthenticated() ? (
                         <div className="nav nav-pills navbar-right">
+                            <p>Welcome {this.getUserName()}</p>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/dashboard">Dashboard</Link></li>
                             <li><p onClick={this.handleOnClick} className="btn">Log out</p></li>

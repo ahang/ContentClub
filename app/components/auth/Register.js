@@ -7,7 +7,8 @@ class Register extends Component {
 
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			redirect: false,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
