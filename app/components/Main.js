@@ -7,8 +7,6 @@ import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 // ----------------------------
 // Static Bars
 // ----------------------------
-import Header from './layout/Header';
-// import Footer from './layout/Footer';
 
 class Main extends Component {
 	    constructor(props) {
@@ -28,7 +26,7 @@ class Main extends Component {
                             <figure className="board-img img-boxart">
                                 <img className="img-art" src={board.img} alt={board.contentDescription} title={board.contentDescription}/>
                             </figure>
-                            <div className="board-body-text"> 
+                            <div className="board-body-text">
                                 <h3 className="board-title">{board.boardTitle}</h3>
                                 <p className="board-info">{board.category}</p>
                                 <br />
@@ -37,7 +35,7 @@ class Main extends Component {
                             </div>
                         </a>
                     </div>
-                </div>                 
+                </div>
             )
         })
     }
