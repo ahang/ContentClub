@@ -6,8 +6,9 @@
 // =============================================================
 const express = require("express");
 const router = express.Router();
+const Board = require("../models/Board");
 
-router.get("/api/boards", function(req, res) {
+router.get("/boards", function(req, res) {
 
 	Board.find({}).exec(function(err, doc) {
 
