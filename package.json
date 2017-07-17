@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server",
-    "build": "NODE_ENV=production webpack --config ./webpack.config.js --progress --colors",
-    "start": "node server.js"
+    "build": "webpack --config ./webpack.config.js --progress --colors",
+    "start": "node server.js",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
