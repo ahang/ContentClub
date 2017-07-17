@@ -13,21 +13,21 @@ class Header extends Component {
   }
   render() {
     return (
-      <div className='row'>
-        <nav className="navbar navbar-default navbar-fixed-top">
+      <div className='row container-fluid'>
+        <nav className="navbar">
           <a className='navbar-brand' href="/">
-            <img id='logo' src='css/images/logo-white-sm.png' />
+            <img id='logo' src='css/images/logo-white-sm.png' height="30" width="30" />
           </a>
           {Auth.isUserAuthenticated() ? (
             <div className="nav nav-pills navbar-right">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/dashboard">Dashboard</Link></li>
+              <li><Link to="/" className="btn">Home</Link></li>
+              <li><Link to="/dashboard" className="btn">Dashboard</Link></li>
               <li><p onClick={this.handleOnClick} className="btn">Log out</p></li>
             </div>
           ): (
             <div className="nav nav-pills navbar-right">
-              <li><Link to ="/login">Login</Link></li>
-              <li><Link to="/register">Register</Link></li>
+              <li><Link to ="/login" className="btn">Login</Link></li>
+              <li><Link to="/register" className="btn">Register</Link></li>
             </div>
           )}
         </nav>

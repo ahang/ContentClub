@@ -1,85 +1,93 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Auth from "./Auth"
 
 class Login extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			username: "",
-			password: "",
-			response: null,
-			redirect: false
-		};
+	this.state = {
+	  username: "",
+	  password: "",
+	  response: null,
+	  redirect: false
+	};
 
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
+	this.handleSubmit = this.handleSubmit.bind(this);
+	this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleSubmit(event) {
+	event.preventDefault();
+	axios.post("/auth/login", {
+	  "username": this.state.username,
+	  "password": this.state.password
+	}).then((response) => {
+		console.log(JSON.stringify(response));
+		Auth.authenticateUser(response.data.token);
+		this.setState({ redirect: true });
+	  })
+  }
+
+  handleInputChange(event) {
+    console.log(event.target);
+	const value = event.target.value;
+	const name = event.target.name;
+
+	this.setState({
+	  [name]: value
+	});
+  }
+
+  render() {
+	const { redirect } = this.state;
+	if (redirect) {
+	  return <Redirect to="/" />;
 	}
+	return(
+	  <div className="container loginForm">
+	    <center className="col-md-12">
+	    <h3> Login to view your dashboard </h3>
+		<form className="form-group" onSubmit={this.handleSubmit}>
+		  <div>
+			<label>
+			  Username:
+			  <input
+				name="username"
+				placeholder="Username"
+				className="form-control"
+				type="text"
+				value={this.state.username}
+				onChange={this.handleInputChange} />
+			</label>
+			<br />
+			<label>
+			  Password:
+			  <input
+				name="password"
+				placeholder="Password"
+				className="form-control"
+				type="password"
+				value={this.state.password}
+				onChange={this.handleInputChange} />
+			</label>
+			<br />
+			<div className="row">
+		    <Link to="/landing" className="btn goBackBtn">Go Back</Link>
+		    <input
+			  className="btn submitBtn"
+			  type="submit"
+			  value="Login" />
+		    </div>
+		  </div>
+		</form>
 
-	handleSubmit(event) {
-		event.preventDefault();
-		axios.post("/auth/login", {
-			"username": this.state.username,
-			"password": this.state.password
-		}).then((response) => {
-			console.log(JSON.stringify(response));
-			Auth.authenticateUser(response.data.token);
-			this.setState({ redirect: true });
-		})
-	}
-
-	handleInputChange(event) {
-		console.log(event.target);
-		const value = event.target.value;
-		const name = event.target.name;
-
-		this.setState({
-			[name]: value
-		});
-	}
-
-	render() {
-		const { redirect } = this.state;
-		if (redirect) {
-			return <Redirect to="/" />;
-		}
-		return(
-			<div>
-				<form className="form-group col-md-4 col-md-offset-4" onSubmit={this.handleSubmit}>
-					<div className="form-group">
-						<label>
-							Username:
-								<input
-									name="username"
-									placeholder="Username"
-									className="form-control input-lg"
-									type="text"
-									value={this.state.username}
-									onChange={this.handleInputChange} />
-						</label>
-					</div>
-					<div className="form-group">
-						<label>
-							Password:
-								<input
-									name="password"
-									placeholder="Password"
-									className="form-control input-lg"
-									type="password"
-									value={this.state.password}
-									onChange={this.handleInputChange} />
-						</label>
-					</div>
-					<input
-						className="btn btn-lg btn-warning"
-						type="submit"
-						value="Login" />
-				</form>
-			</div>
-		)
-	}
+		</center>
+	  </div>
+	)
+  }
 }
 
 export default Login;

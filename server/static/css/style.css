@@ -1,13 +1,13 @@
 body {
-	background-color: #2f3f4f;
+/*	background-color: #2f3f4f;
 	color: white;	
 	text-decoration: none;
-	text-decoration-color: white;
+	text-decoration-color: white;*/
 }
 
 /*div { border: solid; }*/
 
-p.left,
+/*p.left,
 a.left {
 	text-align: left;
 }
@@ -15,13 +15,13 @@ a.left {
 p.right,
 p.right {
 	text-align: right;
-}
+}*/
 
 
 /* ---------- */
 /* 	 HEADER   */
 /* ---------- */
-#welcome {
+/*#welcome {
 	padding: 50px;
 }
 
@@ -31,21 +31,21 @@ p.right {
 
 .join-board-form {
 	color: black;
-}
+}*/
 
-.circle {
+/*.circle {
 	border-radius: 50%;	
 	width: 60px;
 	height: 60px; 
 	color: white;
 	border: solid;
-}
+}*/
 
-#logo {
-	/*width: 60px;
-	height: auto;*/
+/*#logo {
+	width: 60px;
+	height: auto;
 	margin-top: -10px;
-}
+}*/
 
 /* ----------- */
 /*  DASHBOARD  */

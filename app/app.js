@@ -22,22 +22,20 @@ import Data from '../data.json';
 import userData from '../userdata.json';
 
 const App = () => {
-	return (
-		<HashRouter>
-			
-			<div>
-				
-				<Route exact path="/register" component={Register} />
-				<Route exact path="/login" component={Login} />
-                <Route exact path="/form" component={Form} />
-                <Route exact path="/landing" component={Landing} />
-                <Route exact path="/dashboard" render={ (props) => (
-                	<Dashboard {...props} data={userData} />)} />
-                <Route exact path="/"  render={ (props) => (
-                    <Main {...props} data={Data} />)} />
-			</div>
-		</HashRouter>
-	)
+  return (
+    <HashRouter>
+	  <div>
+		<Route exact path="/register" component={Register} />
+		<Route exact path="/login" component={Login} />
+        <Route exact path="/form" component={Form} />
+        <Route exact path="/landing" component={Landing} />
+        <Route exact path="/dashboard" render={ (props) => (
+          <Dashboard {...props} data={userData} />)} />
+        <Route exact path="/"  render={ (props) => (
+          <Main {...props} data={Data} />)} />
+	  </div>
+	</HashRouter>
+  )
 }
 
 ReactDOM.render(

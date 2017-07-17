@@ -5,11 +5,12 @@ class Landing extends Component {
   render() {
   	return (
  	  <div className="jumbotron">
-  		<h1 className="center">Welcome to the Content Club!</h1>
-  	      <div className="col-md-12 centered">
+  		<center> <h1>Welcome to the Content Club!</h1>
+  	      <div className="col-md-12">
 			<Link to ="/login" className="btn landingBtn">Login</Link> 
 			<Link to="/register" className="btn landingBtn">Register</Link>
   	      </div>
+  	    </center>
   	  </div>
 
   	);
