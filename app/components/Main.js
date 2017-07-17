@@ -13,8 +13,18 @@ class Main extends Component {
         super(props);
     }
 
-    // imageChoice() {
-    //     if (    )
+    // componentWillMount() {
+    //     console.log("COMPONENT MOUNTED");
+
+    //     // As the page loads, grab the articles that already exist in the database
+    //     helpers.getBoards()
+    //         .then((response) => {    
+    //             this.setState({
+    //                 boards: response.data
+    //             });                
+    //             console.log("RESULTS", response);
+    //             console.log("state", this.state.boards);     
+    //         })
     // }
 
     generateImage () {
@@ -22,18 +32,18 @@ class Main extends Component {
             return (
                <div className="full-board col-sm-3" key={board.boardTitle}>
                     <div className="board item card">
-                        <a className="title-name">
-                            <figure className="board-img img-boxart">
-                                <img className="img-art" src={board.img} alt={board.contentDescription} title={board.contentDescription}/>
+                        <div className="title-name">
+                            <figure className="board-img img-boxart" id="board-id">
+                                <img className="img-art" src={board.img} alt={board.contentDescription} title={board.contentDescription} />
                             </figure>
                             <div className="board-body-text">
-                                <h3 className="board-title">{board.boardTitle}</h3>
+                                <h5 className="board-title">{board.boardTitle}</h5>
                                 <p className="board-info">{board.category}</p>
                                 <br />
                                 <a href={board.contentUrl} className="board-username left">{board.username}</a>
 
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             )
