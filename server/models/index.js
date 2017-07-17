@@ -9,6 +9,10 @@ module.exports.connect = (uri) => {
 		process.exit(1);
 	});
 
+	mongoose.connection.once("open", () => {
+		console.log("Mongoose connection successful.");
+	});
+
 	// Load models
 	require("./Account");
 	require("./Comment");

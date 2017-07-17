@@ -7,7 +7,7 @@ const passport = require("passport");
 const config = require("./config");
 
 
-const databaseString = process.env.MONGODB_URI || "mongodb://localhost/NYT-ReactSearch";
+const databaseString = process.env.MONGODB_URI || "mongodb://localhost/contentclub";
 require("./server/models").connect(databaseString);
 
 const app = express();
