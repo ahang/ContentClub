@@ -28,7 +28,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
+                <div className="row id={xboard.id}">
                     {/* Title */}
                     <div className="col-sm-12">
                         <h1>{board.boardTitle}</h1>

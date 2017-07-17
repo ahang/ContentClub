@@ -11,7 +11,18 @@ const Board = require("../models/Board");
 router.get("/boards", function(req, res) {
 
 	Board.find({}).exec(function(err, doc) {
+	    if (err) {
+	      console.log(err);
+	    }
+	    else {
+	      res.send(doc);
+	    }
+  	});
+});
 
+router.get("/boards/:id", function(req, res) {
+
+	Board.findOne.exec(function(err, doc) {
 	    if (err) {
 	      console.log(err);
 	    }

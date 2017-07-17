@@ -6,7 +6,9 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const config = require("./config");
 
-require("./server/models").connect(config.dbUri);
+
+const databaseString = process.env.MONGODB_URI || "mongodb://localhost/contentclub";
+require("./server/models").connect(databaseString);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
