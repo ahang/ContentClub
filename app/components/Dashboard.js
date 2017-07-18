@@ -41,16 +41,15 @@ class Dashboard extends Component {
                         <div className="title-name">
                             <figure className="board-img img-boxart">
 
-                                    <img 
-                                        className="img-art" 
-                                        data-id={board._id} 
-                                        src={board.contentURL} 
-                                        alt={board.contentDescription} 
-                                        title={board.contentDescription}
+                                <img 
+                                    className="img-art" 
+                                    data-id={board._id} 
+                                    src={board.contentURL} 
+                                    alt={board.contentDescription} 
+                                    title={board.contentDescription}
 
-                                        value = {board._id}
-                                        onClick = {this.getOneboard} />
-                                    
+                                    value = {board._id}
+                                    onClick = {this.getOneboard} />
 
                             </figure>
                             <div className="board-body-text"> 
