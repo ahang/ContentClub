@@ -24,7 +24,7 @@ router.get("/boards", function(req, res) {
 
 router.get("/boards/:id", function(req, res) {
 	
-	Board.findOne({ _id : req.params.id }).then( function(db) {
+	Board.findOne({ _id : req.params.id }).populate("comments").sort({"date": -1}).then( function(db) {
 		
   		res.json(db)
   	})

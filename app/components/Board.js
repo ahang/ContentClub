@@ -47,7 +47,15 @@ class Board extends Component {
         helpers.postComment({id: e.target.dataset.id, author: null, text: this.state.newComment})
             .then((result) => {
                     this.setState({newComment: ''});
-                    
+                    const { match } = this.props;
+                    helpers.getOneBoard({ 
+                        id: match.params.id 
+                    }).then((res) => {
+                        console.log("res is " + JSON.stringify(res));
+                        this.setState({currentBoard: res}) 
+                        console.log("this state is: " + this.state.currentBoard)
+
+                    })
                 })
     }
 
@@ -58,6 +66,12 @@ class Board extends Component {
                         <h3>{board.boardTitle}</h3>
                         {/*<img src={board.contentURL} />*/}
                         <p>{board.contentDescription}</p>
+                        <div>{board.comments.map((comment) => {
+                            return (
+                                <h3 key={comment._id}>{comment.text}</h3>
+                                )
+                            })}
+                        </div>
                         <form>
                             <div className="form-group">
                                 <label htmlFor="name">Comment:</label>
