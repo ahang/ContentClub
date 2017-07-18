@@ -25,20 +25,39 @@ class Dashboard extends Component {
             })
     }
     
+    getOneboard (e) {
+        helpers.getOneboard({id: e.dataset.id}
+        ).then((res) => {
+            res.render(res)
+        })
+    }
+
+
     generateImage () {
         return this.state.boards.map((board) => {
             return (
-               <div className="full-board col-sm-3" key={board.boardTitle} id={board.id}>
+               <div className="full-board col-sm-3" key={board.boardTitle} id={board._id}>
                     <div className="board item card">
                         <div className="title-name">
-                            {/*<figure className="board-img img-boxart">
-                                <img className="img-art" src={board.img} alt={board.contentDescription} title={board.contentDescription}/>
-                            </figure>*/}
+                            <figure className="board-img img-boxart">
+
+                                    <img 
+                                        className="img-art" 
+                                        data-id={board._id} 
+                                        src={board.contentURL} 
+                                        alt={board.contentDescription} 
+                                        title={board.contentDescription}
+
+                                        value = {board._id}
+                                        onClick = {this.getOneboard} />
+                                    
+
+                            </figure>
                             <div className="board-body-text"> 
                                 <h3 className="board-title">{board.boardTitle}</h3>
                                 <p className="board-info">{board.category}</p>
                                 <br />
-                                <a href={board.contentUrl} className="board-username left">{board.boardTitle}</a>
+                                <a href={board.contentURL} className="board-username left">{board.boardTitle}</a>
 
                             </div>
                         </div>

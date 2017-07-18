@@ -23,9 +23,13 @@ const helpers = {
 		return axios.get("/boards");
 	},
 
+	getOneBoard (board) {
+		return axios.get(`/boards/${board._id}`);
+	},
+
 	deleteBoard (board) {
 		console.log(board.id)
-		return axios.post(`/delete/${board.id}`)
+		return axios.post(`/delete/${board._id}`)
 	}
 }
 

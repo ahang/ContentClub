@@ -8,8 +8,11 @@ import Header from "./components/layout/Header"
 // to main dashboard
 import Dashboard from './components/Dashboard';
 import Form from './components/Form';
+import Board from './components/Board';
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+
+
 
 // import './public/css/index.scss';
 require("!style-loader!css-loader!sass-loader!../server/static/css/index.scss");

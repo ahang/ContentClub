@@ -5,12 +5,12 @@ import React, {Component} from 'react';
 import helpers from "../utils/helpers";
 
 
-class Dashboard extends Component {
+class Board extends Component {
     constructor(props) {
         super(props);
         this.state = { boards: [] };
     }
-
+    
     componentWillMount() {
         console.log("COMPONENT MOUNTED");
 
@@ -25,10 +25,11 @@ class Dashboard extends Component {
             })
     }
 
+
     render() {
         return (
             <div className="container">
-                <div className="row id={xboard.id}">
+                <div className="row id={board._id}">
                     {/* Title */}
                     <div className="col-sm-12">
                         <h1>{board.boardTitle}</h1>
@@ -45,7 +46,7 @@ class Dashboard extends Component {
                 </div>
                 {/* preview image */}
                 <div className="row">
-                    <div className="img-prev-hor">{board.img}</div>
+                    <div className="img-prev-hor">{board.contentURL}</div>
                 </div>
                 {/* category */}
                 <div className="row">
@@ -66,4 +67,4 @@ class Dashboard extends Component {
     }
 };
 
-export default BoardTemplate;
+export default Board;

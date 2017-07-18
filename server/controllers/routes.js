@@ -20,17 +20,14 @@ router.get("/boards", function(req, res) {
   	});
 });
 
-router.get("/boards/:id", function(req, res) {
+router.get("/boards/:_id", function(req, res) {
 
-	Board.findOne.exec(function(err, doc) {
-	    if (err) {
-	      console.log(err);
-	    }
-	    else {
-	      res.send(doc);
-	    }
-  	});
+	Board.findOne({ _id : req.params.body }).then( function(db) {
+		console.log( `this is the params: ${req.params.body}` )
+  		res.json(db)
+  	})
 });
+
 
 router.post("/boards", function(req, res) {
 
