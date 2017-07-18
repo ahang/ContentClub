@@ -8,9 +8,17 @@ import helpers from "../utils/helpers";
 class Board extends Component {
     constructor(props) {
         super(props);
-        this.state = { boards: [] };
+        this.state = { 
+            boards: [] }
+            comments: '',;
+
+        this.handleComments = this.handleComments.bind(this);
     }
     
+    handleComments(e) {
+        this.setState({ comments: e.target.value }, () => console.log('comments:', this.state.comments));
+    }
+
     componentWillMount() {
         console.log("COMPONENT MOUNTED");
 
@@ -58,9 +66,9 @@ class Board extends Component {
                         <p>{board.contentDescription}</p>
                     <hr />
                 </div>
-                {/* save option */}
-                <div className="row">
-                    <p className="right"> save </p>
+                {/* Add a comment */}
+                <div className="form-group">
+                    <center> comments </center><input type="text" className="form-control" value={this.state.comment} onChange={this.handleComment} />
                 </div>
             </div>
         );
