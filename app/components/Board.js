@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import helpers from "../utils/helpers";
 import { withRouter } from 'react-router-dom'
+import jwtDecode from "jwt-decode";
 
 
 
@@ -11,6 +12,7 @@ class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            user: null,
             currentBoard: null,
             comments: '',
             newComment: '',
@@ -19,22 +21,25 @@ class Board extends Component {
         this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleReplySubmit = this.handleReplySubmit.bind(this);
-
+        this.setUser = this.setUser.bind(this);
     }
 
     componentDidMount() {
-        console.log("mounted");
+        this.setUser();
         const { match } = this.props;
         helpers.getOneBoard({
             id: match.params.id
         }).then((res) => {
-            console.log("res is " + JSON.stringify(res));
             this.setState({currentBoard: res})
-            console.log("this state is: " + this.state.currentBoard)
-
         })
+    }
 
-
+    setUser() {
+        if (localStorage.getItem("token")) {
+            const token = localStorage.getItem("token");
+            const decodeToken = jwtDecode(token);
+            this.setState({ user: decodeToken.name })
+        }
     }
 
     onChange(e) {
@@ -45,7 +50,7 @@ class Board extends Component {
         e.preventDefault()
         console.log(this.state.newComment)
         console.log("id is " + e.target.dataset.id)
-        helpers.postComment({id: e.target.dataset.id, author: null, text: this.state.newComment})
+        helpers.postComment({id: e.target.dataset.id, author: this.state.user, text: this.state.newComment})
             .then((result) => {
                     this.setState({newComment: ''});
                     const { match } = this.props;
@@ -65,7 +70,7 @@ class Board extends Component {
         console.log(this.newReply.value)
 
         console.log("id is " + e.target.dataset.id)
-        helpers.postReply({id: e.target.dataset.id, author: null, text: this.newReply.value})
+        helpers.postReply({id: e.target.dataset.id, author: this.state.user, text: this.newReply.value})
             .then((result) => {
                     this.newReply.value = "";
                     const { match } = this.props;
@@ -90,11 +95,11 @@ class Board extends Component {
                         <div>{board.comments.map((comment) => {
                             return (
                                 <div key={comment._id}>
-                                    <h3>{comment.text}</h3>
+                                    <h3>{comment.text} - {comment.author}</h3>
                                     <div>{comment.replies.map((reply) => {
                                         return (
                                             <div key={reply._id}>
-                                                <h4>{reply.text}</h4>
+                                                <h4>{reply.text} - {reply.author}</h4>
                                             </div>
                                         )
                                     })}

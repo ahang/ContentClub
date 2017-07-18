@@ -17,6 +17,7 @@ class FormContainer extends Component {
       contentDescription: '',
       openUntil: '',
       isPublic: '',
+      user: "",
       boardId: null,
       redirect: false
     };
