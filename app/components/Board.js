@@ -56,6 +56,7 @@ class Board extends Component {
                         <h3>{board.boardTitle}</h3>
                         <img src={board.contentURL} />
                         <p>{board.contentDescription}</p>
+                        <p>{board.contentDescription}</p>
                         <p>Will this show up</p>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
