@@ -36,6 +36,11 @@ const helpers = {
 	postComment (board) {
 		console.log(board)
 		return axios.post(`/boards/comment/${board.id}`, board)
+	},
+
+	postReply (comment) {
+		console.log(comment)
+		return axios.post(`/boards/reply/${comment.id}`, comment)
 	}
 }
 
