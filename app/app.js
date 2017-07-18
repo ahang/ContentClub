@@ -33,11 +33,9 @@ const App = () => {
 		<Route exact path="/login" component={Login} />
         <Route exact path="/form" component={Form} />
          <Route path="/board/:id" component={Board} />
-        <Route exact path="/landing" component={Landing} />
         <Route exact path="/dashboard" render={ (props) => (
           <Dashboard {...props} data={userData} />)} />
-        <Route exact path="/"  render={ (props) => (
-          <Main {...props} data={Data} />)} />  
+        <Route exact path="/" component={Landing}/>
         <Footer />
     </div>
 	</HashRouter>

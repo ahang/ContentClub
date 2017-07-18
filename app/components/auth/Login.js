@@ -57,7 +57,7 @@ class Login extends Component {
   render() {
 	const { redirect } = this.state;
 	if (redirect) {
-	  return <Redirect to="/" />;
+	  return <Redirect to="/dashboard" />;
 	}
 	return(
 	  <div className="container loginForm">
