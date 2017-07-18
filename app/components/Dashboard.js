@@ -49,23 +49,22 @@ class Dashboard extends Component {
                     <div className="board item card">
                         <div className="title-name">
                             <figure className="board-img img-boxart">
-
-                                <img 
+                            
+                                <Link to={`/board/${board._id}`}><img 
                                     className="img-art" 
                                     data-id={board._id} 
                                     src={board.contentURL} 
                                     alt={board.contentDescription} 
                                     title={board.contentDescription}
-
-                                    value = {board._id}
-                                    onClick = {this.getOneBoard} />
+                                    value = {board._id}/>{board.boardTitle}
+                                </Link>
 
                             </figure>
                             <div className="board-body-text"> 
                                 <h3 className="board-title">{board.boardTitle}</h3>
                                 <p className="board-info">{board.category}</p>
                                 <br />
-                                <Link to={`/board/${board._id}`}>{board.boardTitle}</Link>
+   
 
                             </div>
                         </div>
