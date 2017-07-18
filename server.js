@@ -6,7 +6,9 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const config = require("./config");
 
-require("./server/models").connect(config.dbUri);
+
+const databaseString = process.env.MONGODB_URI || "mongodb://localhost/contentclub";
+require("./server/models").connect(databaseString);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,9 +34,11 @@ app.use(express.static('./server/static/'));
 
 //Importing Routes
 const authRoutes = require("./server/controllers/auth.js");
-const apiRoutes = require("./server/controllers/api")
+const apiRoutes = require("./server/controllers/api");
+const routes = require("./server/controllers/routes.js");
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
+app.use("/", routes);
 
 app.listen(PORT, function() {
 	console.log(`Server Running on Port: ${PORT}`);

@@ -19,6 +19,11 @@ class Register extends Component {
 	  "username": this.state.username,
 	  "password": this.state.password
 	}).then((response) => {
+		this.state = {
+			username: "",
+			password: "",
+			redirect: false,
+		};
 
 	})
   }
