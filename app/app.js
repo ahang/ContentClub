@@ -11,6 +11,7 @@ import Form from './components/Form';
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Landing from "./components/Landing";
+import Footer from "./components/Footer";
 
 // import './public/css/index.scss';
 require("!style-loader!css-loader!sass-loader!../server/static/css/index.scss");
@@ -32,9 +33,11 @@ const App = () => {
         <Route exact path="/dashboard" render={ (props) => (
           <Dashboard {...props} data={userData} />)} />
         <Route exact path="/"  render={ (props) => (
-          <Main {...props} data={Data} />)} />
-	  </div>
+          <Main {...props} data={Data} />)} />  
+        <Footer />
+    </div>
 	</HashRouter>
+
   )
 }
 
