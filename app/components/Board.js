@@ -10,11 +10,11 @@ import { withRouter } from 'react-router-dom'
 class Board extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             currentBoard: null,
             comments: '',
             newComment: '',
-            
+
         }
         this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,16 +25,16 @@ class Board extends Component {
     componentDidMount() {
         console.log("mounted");
         const { match } = this.props;
-        helpers.getOneBoard({ 
-            id: match.params.id 
+        helpers.getOneBoard({
+            id: match.params.id
         }).then((res) => {
             console.log("res is " + JSON.stringify(res));
-            this.setState({currentBoard: res}) 
+            this.setState({currentBoard: res})
             console.log("this state is: " + this.state.currentBoard)
 
         })
-        
-        
+
+
     }
 
     onChange(e) {
@@ -49,11 +49,11 @@ class Board extends Component {
             .then((result) => {
                     this.setState({newComment: ''});
                     const { match } = this.props;
-                    helpers.getOneBoard({ 
-                        id: match.params.id 
+                    helpers.getOneBoard({
+                        id: match.params.id
                     }).then((res) => {
                         console.log("res is " + JSON.stringify(res));
-                        this.setState({currentBoard: res}) 
+                        this.setState({currentBoard: res})
                         console.log("this state is: " + this.state.currentBoard)
 
                     })
@@ -63,17 +63,17 @@ class Board extends Component {
     handleReplySubmit(e) {
         e.preventDefault()
         console.log(this.newReply.value)
-        
+
         console.log("id is " + e.target.dataset.id)
         helpers.postReply({id: e.target.dataset.id, author: null, text: this.newReply.value})
             .then((result) => {
                     this.newReply.value = "";
                     const { match } = this.props;
-                    helpers.getOneBoard({ 
-                        id: match.params.id 
+                    helpers.getOneBoard({
+                        id: match.params.id
                     }).then((res) => {
                         console.log("res is " + JSON.stringify(res));
-                        this.setState({currentBoard: res}) 
+                        this.setState({currentBoard: res})
                         console.log("this state is: " + this.state.currentBoard)
 
                     })
@@ -82,7 +82,7 @@ class Board extends Component {
 
     renderBoard() {
         const board = this.state.currentBoard.data;
-                return ( 
+                return (
                     <div>
                         <h3>{board.boardTitle}</h3>
                         <img src={board.contentURL} />
@@ -99,7 +99,7 @@ class Board extends Component {
                                         )
                                     })}
                                     </div>
-                                    
+
                                     <form>
                                         <div className="form-group">
                                              <label htmlFor="name">Reply:</label>
@@ -119,7 +119,7 @@ class Board extends Component {
                                             Reply
                                         </button>
                                     </form>
-                                </div>        
+                                </div>
                             )
                         })}
                         </div>
@@ -127,7 +127,7 @@ class Board extends Component {
                             <div className="form-group">
                                 <label htmlFor="name">Comment:</label>
                                 <br />
-                                <textarea 
+                                <textarea
                                     className="form-control"
                                     rows="5"
                                     value={this.state.newComment} // input is now a controlled component, value set by state
@@ -135,7 +135,7 @@ class Board extends Component {
                                     onChange={this.onChange}
                                     required />
                             </div>
-                            <button 
+                            <button
                                 data-id={board._id}
                                 onClick = {this.handleSubmit}
                                 className="btn btn-success btn-group-lg">

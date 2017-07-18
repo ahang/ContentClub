@@ -1,5 +1,5 @@
 // ******************************************************************************
-// routes.js 
+// routes.js
 //
 // ******************************************************************************
 // *** Dependencies
@@ -23,15 +23,15 @@ router.get("/boards", function(req, res) {
 });
 
 router.get("/boards/:id", function(req, res) {
-	
+
 	Board.findOne({ _id : req.params.id }).populate({
-												"path":"comments",
-												"populate": {
-													"path":"replies",
-													"model":"Reply"
-												}
-											}).sort({"date": 1}).then( function(db) {
-		
+		"path":"comments",
+		"populate": {
+			"path":"replies",
+			"model":"Reply"
+		}
+	}).sort({"date": 1}).then( function(db) {
+
   		res.json(db)
   	})
 });
@@ -47,7 +47,7 @@ router.post("/boards", function(req, res) {
             console.log(err);
         } else {
             console.log(data)
-            res.end();
+            res.json(data);
         }
 
     });
@@ -63,7 +63,7 @@ router.post("/boards/comment/:id", function(req, res) {
   			res.sendStatus(400);
   			//res.send(error);
   		} else {
-	    
+
 		    // Find our article and push the new comment id into the board's comments array
 		    Board.findOneAndUpdate({"_id": req.params.id}, { $push: { "comments": doc._id } }, { new: true }, function(err, newdoc) {
 		        res.end();
@@ -82,7 +82,7 @@ router.post("/boards/reply/:id", function(req, res) {
   			res.sendStatus(400);
   			//res.send(error);
   		} else {
-	    
+
 		    // Find our article and push the new comment id into the comment's replies array
 		    Comment.findOneAndUpdate({"_id": req.params.id}, { $push: { "replies": doc._id } }, { new: true }, function(err, newdoc) {
 		        res.end();

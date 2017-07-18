@@ -3,6 +3,7 @@
 // ----------------------------
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Redirect } from "react-router-dom";
 import helpers from "../utils/helpers"
 
 
@@ -15,7 +16,9 @@ class FormContainer extends Component {
       contentURL: '',
       contentDescription: '',
       openUntil: '',
-      isPublic: ''
+      isPublic: '',
+      boardId: null,
+      redirect: false
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
@@ -50,7 +53,7 @@ class FormContainer extends Component {
     handleIsPublic(e) {
     this.setState({ isPublic: e.target.value }, () => console.log('isPublic:', this.state.isPublic));
   }
-  
+
   handleClearForm(e) {
     e.preventDefault();
     this.setState({
@@ -71,13 +74,23 @@ class FormContainer extends Component {
       contentURL: this.state.contentURL,
       contentDescription: this.state.contentDescription,
       openUntil: this.state.openUntil,
-      isPublic: this.state.isPublic     
+      isPublic: this.state.isPublic
     };
     helpers.saveBoard(boardSubmit)
-      .then((result) => { console.log('new form was created:', boardSubmit) }) ;
+      .then((result) => {
+        console.log('new form was created:', boardSubmit);
+        console.log(result);
+        this.setState({
+          boardId: result.data._id,
+          redirect: true });
+      }) ;
   }
-  
+
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to={`/board/${this.state.boardId}`} />;
+    }
       return (
     <div className="search-container">
     <div className="panel-heading">
@@ -106,7 +119,7 @@ class FormContainer extends Component {
     <div className="form-group">
      <center> Open Until: </center><input type="date" className="form-control" value={this.state.openUntil} onChange={this.handleOpenUntil} />
     </div>
-    
+
     <div className="form-group">
       <button className="btn btn-primary" type="submit" onClick={this.handleFormSubmit}>Submit</button>
       <button className="btn btn-primary" onClick={this.handleClearForm}>Clear</button>
