@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
+
 
 class Register extends Component {
   constructor(props) {
 	super(props);
 	this.state = {
 	  username: "",
-	  password: ""
+	  password: "",
+	  redirect: false
     };
+
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -19,11 +22,8 @@ class Register extends Component {
 	  "username": this.state.username,
 	  "password": this.state.password
 	}).then((response) => {
-		this.state = {
-			username: "",
-			password: "",
-			redirect: false,
-		};
+		localStorage.setItem("successMessage", response.data.message);
+		this.setState({ redirect: true });
 
 	})
   }
@@ -38,6 +38,10 @@ class Register extends Component {
   }
 
   render() {
+  	const { redirect } = this.state;
+  	if (redirect) {
+  		return <Redirect to="/login" />;
+  	}
 	return(
 	  <div className="container registerForm">
 	    <center className="col-md-12">

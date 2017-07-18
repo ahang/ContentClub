@@ -14,10 +14,10 @@ class Header extends Component {
     handleOnClick() {
         Auth.deauthenticateUser();
     }
+
     getUserName() {
         const token = localStorage.getItem("token");
         const decodeToken = jwtDecode(token);
-        console.log(decodeToken);
         return decodeToken.name;
     }
 

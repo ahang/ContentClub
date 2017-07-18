@@ -11,12 +11,25 @@ class Login extends Component {
 	this.state = {
 	  username: "",
 	  password: "",
+	  justReg: false,
 	  response: null,
 	  redirect: false
 	};
 
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.handleInputChange = this.handleInputChange.bind(this);
+	this.loadSuccessMessage = this.loadSuccessMessage.bind(this);
+  }
+
+  componentDidMount() {
+  	if (localStorage.getItem("successMessage")) {
+  		this.setState({ justReg: true });
+  	}
+  }
+
+  loadSuccessMessage() {
+  	const getMessage = localStorage.getItem("successMessage");
+  	return getMessage;
   }
 
   handleSubmit(event) {
@@ -50,6 +63,7 @@ class Login extends Component {
 	  <div className="container loginForm">
 	    <center className="col-md-12">
 	    <h3> Login to view your dashboard </h3>
+	    { this.state.justReg ? this.loadSuccessMessage() : <div></div>}
 		<form className="form-group" onSubmit={this.handleSubmit}>
 		  <div>
 			<label>

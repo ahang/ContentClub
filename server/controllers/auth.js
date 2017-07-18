@@ -22,7 +22,7 @@ router.post("/register", (req, res, next) => {
         }
         return res.status(200).json({
             success: true,
-            messsage: "You have successfully signed up"
+            message: "You have successfully signed up. You can now login"
         });
     })(req, res, next);
 });
