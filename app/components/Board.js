@@ -14,10 +14,11 @@ class Board extends Component {
             currentBoard: null,
             comments: '',
             newComment: '',
-            id: null
+            
         }
         this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReplySubmit = this.handleReplySubmit.bind(this);
 
     }
 
@@ -59,6 +60,26 @@ class Board extends Component {
                 })
     }
 
+    handleReplySubmit(e) {
+        e.preventDefault()
+        console.log(this.newReply.value)
+        
+        console.log("id is " + e.target.dataset.id)
+        helpers.postReply({id: e.target.dataset.id, author: null, text: this.newReply.value})
+            .then((result) => {
+                    this.newReply.value = "";
+                    const { match } = this.props;
+                    helpers.getOneBoard({ 
+                        id: match.params.id 
+                    }).then((res) => {
+                        console.log("res is " + JSON.stringify(res));
+                        this.setState({currentBoard: res}) 
+                        console.log("this state is: " + this.state.currentBoard)
+
+                    })
+                })
+    }
+
     renderBoard() {
         const board = this.state.currentBoard.data;
                 return ( 
@@ -68,9 +89,39 @@ class Board extends Component {
                         <p>{board.contentDescription}</p>
                         <div>{board.comments.map((comment) => {
                             return (
-                                <h3 key={comment._id}>{comment.text}</h3>
-                                )
-                            })}
+                                <div key={comment._id}>
+                                    <h3>{comment.text}</h3>
+                                    <div>{comment.replies.map((reply) => {
+                                        return (
+                                            <div key={reply._id}>
+                                                <h4>{reply.text}</h4>
+                                            </div>
+                                        )
+                                    })}
+                                    </div>
+                                    
+                                    <form>
+                                        <div className="form-group">
+                                             <label htmlFor="name">Reply:</label>
+                                            <input
+                                                /*reply form is not a controlled component to avoid same text repeated in all reply fields*/
+                                                className="form-control"
+                                                ref={input => this.newReply = input}
+                                                /*value={this.state.newReply}
+                                                name="newReply"
+                                                onChange={this.onChange}*/
+                                                required />
+                                        </div>
+                                        <button
+                                            data-id={comment._id}
+                                            onClick={this.handleReplySubmit}
+                                            className="btn btn-success btn-group-lg">
+                                            Reply
+                                        </button>
+                                    </form>
+                                </div>        
+                            )
+                        })}
                         </div>
                         <form>
                             <div className="form-group">
