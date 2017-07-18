@@ -34,7 +34,11 @@ var newBoard = new Schema ({
 	isPublic: {
 	    type: Boolean,
 	    default: true
-  	}
+  	},
+  	comments: [{
+		type: Schema.Types.ObjectId,
+		ref: 'Comment'
+	}]
 });
 
 

@@ -31,6 +31,11 @@ const helpers = {
 	deleteBoard (board) {
 		console.log(board.id)
 		return axios.post(`/delete/${board._id}`)
+	},
+
+	postComment (board) {
+		console.log(board)
+		return axios.post(`/boards/comment/${board.id}`, board)
 	}
 }
 
