@@ -14,7 +14,7 @@ class Board extends Component {
             currentBoard: null,
             comments: '',
             newComment: '',
-            id: this.props
+            id: null
         }
         this.onChange = this.onChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +23,6 @@ class Board extends Component {
 
     componentDidMount() {
         console.log("mounted");
-        console.log("board id" + this.state.id);
         const { match } = this.props;
         helpers.getOneBoard({ 
             id: match.params.id 
@@ -31,8 +30,10 @@ class Board extends Component {
             console.log("res is " + JSON.stringify(res));
             this.setState({currentBoard: res}) 
             console.log("this state is: " + this.state.currentBoard)
-        })
 
+        })
+        
+        
     }
 
     onChange(e) {
@@ -42,7 +43,8 @@ class Board extends Component {
     handleSubmit(e) {
         e.preventDefault()
         console.log(this.state.newComment)
-        helpers.postComment({author: null, text: this.state.newComment})
+        console.log("id is " + e.target.dataset.id)
+        helpers.postComment({id: e.target.dataset.id, author: null, text: this.state.newComment})
             .then((result) => {
                     this.setState({newComment: ''});
                     
@@ -54,11 +56,9 @@ class Board extends Component {
                 return ( 
                     <div>
                         <h3>{board.boardTitle}</h3>
-                        <img src={board.contentURL} />
+                        {/*<img src={board.contentURL} />*/}
                         <p>{board.contentDescription}</p>
-                        <p>{board.contentDescription}</p>
-                        <p>Will this show up</p>
-                        <form onSubmit={this.handleSubmit}>
+                        <form>
                             <div className="form-group">
                                 <label htmlFor="name">Comment:</label>
                                 <br />
@@ -66,13 +66,13 @@ class Board extends Component {
                                     className="form-control"
                                     rows="5"
                                     value={this.state.newComment} // input is now a controlled component, value set by state
-                                    name="comment"
+                                    name="newComment"
                                     onChange={this.onChange}
                                     required />
                             </div>
                             <button 
-                                type="submit"
-                                id={this.state.id}
+                                data-id={board._id}
+                                onClick = {this.handleSubmit}
                                 className="btn btn-success btn-group-lg">
                                 Submit
                             </button>

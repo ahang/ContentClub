@@ -48,6 +48,7 @@ router.post("/boards", function(req, res) {
 });
 
 router.post("/boards/comment/:id", function(req, res) {
+		console.log(req.body);
   		// Use our Comment model to make a new comment from the req.body
 		var newComment = new Comment(req.body);
 		// Save the new comment to mongoose
