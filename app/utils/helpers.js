@@ -24,7 +24,8 @@ const helpers = {
 	},
 
 	getOneBoard (board) {
-		return axios.get(`/boards/${board._id}`);
+		console.log('click' + JSON.stringify(board))
+		return axios.get(`/boards/${board.id}`);
 	},
 
 	deleteBoard (board) {

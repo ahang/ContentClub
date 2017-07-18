@@ -2,13 +2,21 @@
 // import dependencies
 // ----------------------------
 import React, {Component} from 'react';
+import { Link } from "react-router-dom";
 import helpers from "../utils/helpers";
+import Board from './Board'
 
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = { boards: [] };
+        this.state = { 
+            boards: [],
+            selectedBoard: null,
+
+        };
+        this.getOneBoard = this.getOneBoard.bind(this);
+        this.generateImage = this.generateImage.bind(this);
     }
 
     componentWillMount() {
@@ -25,13 +33,14 @@ class Dashboard extends Component {
             })
     }
     
-    getOneboard (e) {
-        helpers.getOneboard({id: e.dataset.id}
+    getOneBoard (e) {
+        console.log("dataset: " + e.target.dataset.id);
+        helpers.getOneBoard({id: e.target.dataset.id}
         ).then((res) => {
-            res.render(res)
+            this.setState({selectedBoard: res})
+            console.log("This is the board! " + JSON.stringify(this.state.selectedBoard));
         })
     }
-
 
     generateImage () {
         return this.state.boards.map((board) => {
@@ -49,14 +58,14 @@ class Dashboard extends Component {
                                     title={board.contentDescription}
 
                                     value = {board._id}
-                                    onClick = {this.getOneboard} />
+                                    onClick = {this.getOneBoard} />
 
                             </figure>
                             <div className="board-body-text"> 
                                 <h3 className="board-title">{board.boardTitle}</h3>
                                 <p className="board-info">{board.category}</p>
                                 <br />
-                                <a href={board.contentURL} className="board-username left">{board.boardTitle}</a>
+                                <Link to={`/board/${board._id}`}>{board.boardTitle}</Link>
 
                             </div>
                         </div>
@@ -73,6 +82,7 @@ class Dashboard extends Component {
                     <div className="col-sm-12">
                         { /* This is what actually generates the images */ }
                         <h1>My Uploaded Boards</h1>
+                        { this.state.selectedBoard ? <Board something={this.state.selectedBoard}/>:<div></div>}
                         { this.generateImage() }
                     </div>
                 </div>

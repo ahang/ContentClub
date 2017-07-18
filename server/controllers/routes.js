@@ -20,10 +20,10 @@ router.get("/boards", function(req, res) {
   	});
 });
 
-router.get("/boards/:_id", function(req, res) {
-
-	Board.findOne({ _id : req.params.body }).then( function(db) {
-		console.log( `this is the params: ${req.params.body}` )
+router.get("/boards/:id", function(req, res) {
+	
+	Board.findOne({ _id : req.params.id }).then( function(db) {
+		
   		res.json(db)
   	})
 });

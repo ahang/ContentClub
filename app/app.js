@@ -31,6 +31,7 @@ const App = () => {
 				<Route exact path="/register" component={Register} />
 				<Route exact path="/login" component={Login} />
                 <Route exact path="/form" component={Form} />
+                <Route path="/board/:id" component={Board} />
                 <Route exact path="/dashboard" render={ (props) => (
                 	<Dashboard {...props} data={userData} />)} />
                 <Route exact path="/"  render={ (props) => (
