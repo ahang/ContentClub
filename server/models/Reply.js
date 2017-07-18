@@ -14,7 +14,7 @@ var Schema = mongoose.Schema;
 var newReply = new Schema ({
 	author: {
 		type: String,
-		required: true
+		/*required: true*/
 	},
 	text: {
 		type: String,
