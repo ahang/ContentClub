@@ -64,7 +64,7 @@ class Board extends Component {
                 return ( 
                     <div>
                         <h3>{board.boardTitle}</h3>
-                        {/*<img src={board.contentURL} />*/}
+                        <img src={board.contentURL} />
                         <p>{board.contentDescription}</p>
                         <div>{board.comments.map((comment) => {
                             return (
