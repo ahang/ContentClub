@@ -60,8 +60,8 @@ class Login extends Component {
 	  return <Redirect to="/dashboard" />;
 	}
 	return(
-	  <div className="container loginForm">
-	    <center className="col-md-12">
+	  <div className="container loginForm col-md-8 col-centered">
+	    <center>
 	    <h3> Login to view your dashboard </h3>
 	    { this.state.justReg ? this.loadSuccessMessage() : <div></div>}
 		<form className="form-group" onSubmit={this.handleSubmit}>
@@ -89,7 +89,7 @@ class Login extends Component {
 			</label>
 			<br />
 			<div className="row">
-		    <Link to="/landing" className="btn goBackBtn">Go Back</Link>
+		    <Link to="/" className="btn goBackBtn">Go Back</Link>
 		    <input
 			  className="btn submitBtn"
 			  type="submit"

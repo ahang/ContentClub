@@ -43,8 +43,8 @@ class Register extends Component {
   		return <Redirect to="/login" />;
   	}
 	return(
-	  <div className="container registerForm">
-	    <center className="col-md-12">
+	  <div className="container registerForm col-md-8 col-centered">
+	    <center>
 	    <h3> Create an account to get started </h3>
 		<form className="form-group" onSubmit={this.handleSubmit}>
 		  <div>
@@ -70,7 +70,7 @@ class Register extends Component {
 				onChange={this.handleInputChange} />
 		  </label>
 		  <div className="row">
-		    <Link to="/landing" className="btn goBackBtn">Go Back</Link>
+		    <Link to="/" className="btn goBackBtn">Go Back</Link>
 		    <input
 		      className="btn registerBtn"
 		      type="submit"
