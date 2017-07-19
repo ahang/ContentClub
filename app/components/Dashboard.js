@@ -47,7 +47,7 @@ class Dashboard extends Component {
         return this.state.boards.map((board) => {
             return (
                <div className="full-board col-sm-3" key={board.boardTitle} id={board._id}>
-                    <div className="board item card">
+                    <div className="board-card item card">
                         <div className="title-name">
                             <figure className="board-img img-boxart">
                             
@@ -84,7 +84,9 @@ class Dashboard extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         { /* This is what actually generates the images */ }
-                        <h1>My Uploaded Boards</h1>
+                        <div className="container dashboard-background">
+                            <h1 className="dashboard-header">Dashboard</h1>
+                        </div>
                         { this.state.selectedBoard ? <Board something={this.state.selectedBoard}/>:<div></div>}
                         { this.generateImage() }
                     </div>

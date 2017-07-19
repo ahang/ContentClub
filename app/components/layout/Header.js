@@ -23,7 +23,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='container'>
+            <div>
                 <nav className="navbar">
                     <a className='navbar-brand' href="/">
                         <img id='logo' src='css/images/logo-white-sm.png' height="30" width="30" />

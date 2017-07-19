@@ -88,7 +88,7 @@ class Board extends Component {
       <div className="container currentContent col-md-8 col-centered">
         <center>
           <h1>{board.boardTitle}</h1>
-          <img src={board.contentURL} height="200" width="150" />
+          <img src={board.contentURL} height="200"/>
           <p className="contentDescription">{board.contentDescription}</p>
         </center>
         <div className="commentContent">
