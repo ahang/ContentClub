@@ -46,7 +46,7 @@ class Dashboard extends Component {
     generateImage () {
         return this.state.boards.map((board) => {
             return (
-               <div className="full-board col-sm-3" key={board.boardTitle} id={board._id}>
+               <div className="full-background full-board col-sm-3" key={board.boardTitle} id={board._id}>
                     <div className="board-card item card">
                         <div className="title-name">
                             <figure className="board-img img-boxart">
