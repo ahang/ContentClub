@@ -126,8 +126,8 @@ class FormContainer extends Component {
 
             <div className="form-group">
               <center>
-                <button className="btn searchBtn" onClick={this.handleClearForm}>Clear</button>
-                <button className="btn searchBtn" type="submit" onClick={this.handleFormSubmit}>Submit</button>
+                <button className="btn searchBtn btn-primary" type="submit" onClick={this.handleFormSubmit}>Submit</button>
+                <button className="btn searchBtn btn-danger" onClick={this.handleClearForm}>Clear</button>
               </center>
             </div>
           </form>
