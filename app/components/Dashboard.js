@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import helpers from "../utils/helpers";
 import Board from './Board'
+import Header from './layout/Header.js';
 
 
 class Dashboard extends Component {
@@ -77,6 +78,9 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="container">
+              <div className="header">
+                <Header />
+                </div>
                 <div className="row">
                     <div className="col-sm-12">
                         { /* This is what actually generates the images */ }

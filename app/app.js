@@ -13,6 +13,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
+import Header from './components/layout/Header';
 
 
 

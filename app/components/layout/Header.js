@@ -23,17 +23,18 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='row'>
+            <div className='container'>
                 <nav className="navbar">
                     <a className='navbar-brand' href="/">
-                        <img id='logo' src='css/images/logo-white-sm.png' />
+                        <img id='logo' src='css/images/logo-white-sm.png' height="30" width="30" />
+                        <h2 className="welcome">Welcome {this.getUserName()}!</h2>
                     </a>
                     {Auth.isUserAuthenticated() ? (
                         <div className="nav nav-pills navbar-right">
-                            <p>Welcome {this.getUserName()}</p>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/dashboard">Dashboard</Link></li>
-                            <li><p onClick={this.handleOnClick} className="btn">Log out</p></li>
+                            <li><h5><Link to="/" className="btn headerBtn">Home</Link></h5></li>
+                            <li><h5><Link to="/dashboard" className="btn headerBtn">Dashboard</Link></h5></li>
+                            <li><h5><Link to="/Form" className="btn headerBtn">Create a Board</Link></h5></li>
+                            <li><h5 onClick={this.handleOnClick} className="btn headerBtn">Log out</h5></li>
                         </div>
                     ): (
                         <div className="nav nav-pills navbar-right">
