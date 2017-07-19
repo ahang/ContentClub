@@ -78,11 +78,11 @@ componentWillMount() {
 
     render() {
         return (
-            <div className="container">
-                <div className="header">
-                    <Header />
-                </div>
-                <div className="row">
+            <div>
+                
+                <Header />
+                
+                <div className="container">
                     <div className="col-sm-12">
                         { /* This is what actually generates the images */ }
                         <div className="dashboard-background">
