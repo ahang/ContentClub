@@ -158,7 +158,7 @@ class Board extends Component {
   render() {
     const { match } = this.props;
     return (
-      <div className="container">
+      <div className="">
         <div className="header">
           <Header />
         </div>

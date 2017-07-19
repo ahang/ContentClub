@@ -13,7 +13,12 @@ html {
 }
 
 
-
+.header-navigation {
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: space-between;
+    padding: 0 .625rem;
+}
 
 /*HEADER STYLING*/
 .navbar {
@@ -28,14 +33,13 @@ html {
 
 }
 
-.navbar-brand {
-	margin-top: -5px;
+.headerBtn:hover {
+	color: #FFBC42;
+
 }
 
-.welcome {
-	color: white;
-	font-weight: 700;
-	/*text-align: center;*/
+.navbar-brand {
+	margin-top: -5px;
 }
 
 #dashboard {
@@ -61,6 +65,18 @@ li {
   padding: 13%;
   font-weight: bold;
 }
+
+.welcome {
+	color: #EEB902;
+	font-weight: 700;
+	/*text-align: center;*/
+}
+
+.welcome:hover {
+	color: #EEB902;
+	cursor: default;
+} 
+
 /*END HEADER STYLING*/
 
 
@@ -199,13 +215,13 @@ li {
 	/*position: bottom;
  	bottom:0;
  	left:0;*/
- 	position: absolute;
+ 	position: fixed;
   	right: 0;
   	bottom: 0;
   	left: 0;
  	width: 100vw;
 	color: white;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 	background-color: #0275d8;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
