@@ -47,7 +47,7 @@ componentWillMount() {
     generateImage () {
         return this.state.boards.map((board) => {
             return (
-               <div className="full-board col-sm-3 off-set-3" key={board.boardTitle} id={board._id}>
+               <div className="full-board col-sm-2 off-set-2" key={board.boardTitle} id={board._id}>
                     <div className="board-card item card">
                         <div className="title-name ">
                             <figure className="board-img img-boxart">
@@ -58,17 +58,16 @@ componentWillMount() {
                                     src={board.contentURL}
                                     alt={board.contentDescription}
                                     title={board.contentDescription}
-                                    value = {board._id}/>{board.boardTitle}
+                                    value = {board._id}/>
                                 </Link>
-
-                            </figure>
-                            <div className="board-body-text">
-                                <h3 className="board-title">{board.boardTitle}</h3>
-                                <p className="board-info">{board.category}</p>
+                                <div className="board-body-text">
                                 <br />
+                                <div className="board-title">{board.boardTitle}</div>
+                                    <p className="board-info">{board.category}</p>
+                                    <br />
+                                    </div>
+                            </figure>
 
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,13 +79,13 @@ componentWillMount() {
         return (
             <div className="container">
             <Header />
-                <div className="col-md-6">    
+                <div className="col-md-9">    
                     <div className="full-background">
                         { this.state.selectedBoard ? <Board something={this.state.selectedBoard}/>:<div></div>}
                         { this.generateImage() }
                     </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-3">
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
             </div>
