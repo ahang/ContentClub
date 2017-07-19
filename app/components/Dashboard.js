@@ -35,61 +35,68 @@ componentWillMount() {
   }
     
 
-  getOneBoard (e) {
-    console.log("dataset: " + e.target.dataset.id);
-    helpers.getOneBoard({id: e.target.dataset.id}
-    ).then((res) => {
-      this.setState({selectedBoard: res})
-      console.log("This is the board! " + JSON.stringify(this.state.selectedBoard));
-    })
-  }
+    getOneBoard (e) {
+        console.log("dataset: " + e.target.dataset.id);
+        helpers.getOneBoard({id: e.target.dataset.id}
+        ).then((res) => {
+            this.setState({selectedBoard: res})
+            console.log("This is the board! " + JSON.stringify(this.state.selectedBoard));
+        })
+    }
 
-  generateImage () {
-    return this.state.boards.map((board) => {
-      return (
-        <div className="full-board col-sm-3" key={board.boardTitle} id={board._id}>
-          <div className="board item card">
-            <div className="title-name">
-              <figure className="board-img img-boxart">
-                <Link to={`/board/${board._id}`}><img 
-                  className="img-art" 
-                  data-id={board._id} 
-                  src={board.contentURL} 
-                  alt={board.contentDescription} 
-                  title={board.contentDescription}
-                  value = {board._id}/>{board.boardTitle}
-                </Link>
-              </figure>
-            <div className="board-body-text"> 
-              <h3 className="board-title">{board.boardTitle}</h3>
-              <p className="board-info">{board.category}</p>
-              <br />
+    generateImage () {
+        return this.state.boards.map((board) => {
+            return (
+               <div className="full-board col-sm-3 off-set-3" key={board.boardTitle} id={board._id}>
+                    <div className="board-card item card">
+                        <div className="title-name ">
+                            <figure className="board-img img-boxart">
+                            
+                                <Link to={`/board/${board._id}`}><img 
+                                    className="img-art" 
+                                    data-id={board._id} 
+                                    src={board.contentURL} 
+                                    alt={board.contentDescription} 
+                                    title={board.contentDescription}
+                                    value = {board._id}/>{board.boardTitle}
+                                </Link>
+
+                            </figure>
+                            <div className="board-body-text"> 
+                                <h3 className="board-title">{board.boardTitle}</h3>
+                                <p className="board-info">{board.category}</p>
+                                <br />
+   
+
+                            </div>
+                        </div>
+                    </div>
+                </div>                 
+            )
+        })
+    }
+
+    render() {
+        return (
+            <div className="container">
+                <div className="header">
+                    <Header />
+                </div>
+                <div className="row">
+                    <div className="col-sm-12">
+                        { /* This is what actually generates the images */ }
+                        <div className="dashboard-background">
+                            <h1 className="dashboard-header">Dashboard</h1>
+                        </div>
+                        <div className="full-background">
+                            { this.state.selectedBoard ? <Board something={this.state.selectedBoard}/>:<div></div>}
+                            { this.generateImage() }
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            </div>
-          </div>
-        </div>                 
-      )
-    })
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="header">
-            <Header />
-          </div>
-          <div className="col-sm-12">
-            { /* This is what actually generates the images */ }
-            <h1>My Uploaded Boards</h1>
-            { this.state.selectedBoard ? <Board something={this.state.selectedBoard}/>:<div></div>}
-            { this.generateImage() }
-          </div>
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 };
 
 export default Dashboard;
