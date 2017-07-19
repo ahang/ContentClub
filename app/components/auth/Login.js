@@ -7,7 +7,6 @@ import Auth from "./Auth"
 class Login extends Component {
   constructor(props) {
     super(props);
-
 	this.state = {
 	  username: "",
 	  password: "",
@@ -15,7 +14,6 @@ class Login extends Component {
 	  response: null,
 	  redirect: false
 	};
-
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.handleInputChange = this.handleInputChange.bind(this);
 	this.loadSuccessMessage = this.loadSuccessMessage.bind(this);
@@ -23,7 +21,7 @@ class Login extends Component {
 
   componentDidMount() {
   	if (localStorage.getItem("successMessage")) {
-  		this.setState({ justReg: true });
+  	  this.setState({ justReg: true });
   	}
   }
 
@@ -38,17 +36,16 @@ class Login extends Component {
 	  "username": this.state.username,
 	  "password": this.state.password
 	}).then((response) => {
-		console.log(JSON.stringify(response));
-		Auth.authenticateUser(response.data.token);
-		this.setState({ redirect: true });
-	  })
+	  console.log(JSON.stringify(response));
+	  Auth.authenticateUser(response.data.token);
+	  this.setState({ redirect: true });
+	})
   }
 
   handleInputChange(event) {
     console.log(event.target);
 	const value = event.target.value;
 	const name = event.target.name;
-
 	this.setState({
 	  [name]: value
 	});
@@ -60,8 +57,8 @@ class Login extends Component {
 	  return <Redirect to="/dashboard" />;
 	}
 	return(
-	  <div className="container loginForm">
-	    <center className="col-md-12">
+	  <div className="container loginForm col-md-8 col-centered">
+	    <center>
 	    <h3> Login to view your dashboard </h3>
 	    { this.state.justReg ? this.loadSuccessMessage() : <div></div>}
 		<form className="form-group" onSubmit={this.handleSubmit}>
@@ -89,7 +86,7 @@ class Login extends Component {
 			</label>
 			<br />
 			<div className="row">
-		    <Link to="/landing" className="btn goBackBtn">Go Back</Link>
+		    <Link to="/" className="btn goBackBtn">Go Back</Link>
 		    <input
 			  className="btn submitBtn"
 			  type="submit"

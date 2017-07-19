@@ -92,45 +92,49 @@ class FormContainer extends Component {
     if (redirect) {
       return <Redirect to={`/board/${this.state.boardId}`} />;
     }
-      return (
-    <div className="search-container">
-    <div className="panel-heading">
-    <h3 className="panel-title">Please provide the following information</h3>
-    </div>
-    <div className="panel-body">
-    <form>
-    <div className="form-group">
-     <center> Board Title:</center><input type="text" className="form-control" value={this.state.boardTitle} onChange={this.handleBoardTitle} />
-    </div>
-    <div className="form-group">
-      <center>Category: </center>
-        <select className="form-control" value={this.state.category} onChange={this.handleCategory} >
-          <option value="entertainment">Entertainment</option>
-          <option value="politics">Politics</option>
-          <option value="technology">Technology</option>
-          <option value="career">Career</option>
-        </select>
-    </div>
-    <div className="form-group">
-     <center> Content URL: </center><input type="text" className="form-control" value={this.state.contentURL} onChange={this.handleContentURL} />
-    </div>
-    <div className="form-group">
-     <center> Content Description: </center><input type="text" className="form-control" value={this.state.contentDescription} onChange={this.handleContentDescription} />
-    </div>
-    <div className="form-group">
-     <center> Open Until: </center><input type="date" className="form-control" value={this.state.openUntil} onChange={this.handleOpenUntil} />
-    </div>
+    return (
+      <div className="searchContainer col-md-8 col-centered">
+        <div className="panel-heading">
+          <center>
+            <h1> Create a board </h1>
+            <h3 className="panel-title">Please provide the following information</h3>
+          </center>
+        </div>
+        <div className="panel-body">
+          <form>
+            <div className="form-group">
+              <center> Board Title:</center><input type="text" className="form-control" value={this.state.boardTitle} onChange={this.handleBoardTitle} />
+            </div>
+            <div className="form-group">
+              <center>Category: </center>
+              <select className="form-control" value={this.state.category} onChange={this.handleCategory} >
+                <option value="entertainment">Entertainment</option>
+                <option value="politics">Politics</option>
+                <option value="technology">Technology</option>
+                <option value="career">Career</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <center> Content URL: </center><input type="text" className="form-control" value={this.state.contentURL} onChange={this.handleContentURL} />
+            </div>
+            <div className="form-group">
+              <center> Content Description: </center><input type="text" className="form-control" value={this.state.contentDescription} onChange={this.handleContentDescription} />
+            </div>
+            <div className="form-group">
+              <center> Open Until: </center><input type="date" className="form-control" value={this.state.openUntil} onChange={this.handleOpenUntil} />
+            </div>
 
-    <div className="form-group">
-      <button className="btn btn-primary" type="submit" onClick={this.handleFormSubmit}>Submit</button>
-      <button className="btn btn-primary" onClick={this.handleClearForm}>Clear</button>
-    </div>
-    </form>
-    </div>
-
-    </div>
-  );
-}
+            <div className="form-group">
+              <center>
+                <button className="btn searchBtn" onClick={this.handleClearForm}>Clear</button>
+                <button className="btn searchBtn" type="submit" onClick={this.handleFormSubmit}>Submit</button>
+              </center>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
 }
 
 

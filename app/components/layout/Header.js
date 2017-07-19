@@ -34,7 +34,7 @@ class Header extends Component {
                             <li><h5><Link to="/" className="btn headerBtn">Home</Link></h5></li>
                             <li><h5><Link to="/dashboard" className="btn headerBtn">Dashboard</Link></h5></li>
                             <li><h5><Link to="/Form" className="btn headerBtn">Create a Board</Link></h5></li>
-                            <li><h5 onClick={this.handleOnClick} className="btn headerBtn">Log out</h5></li>
+                            <li><h5><Link to="/" onClick={this.handleOnClick} className="btn headerBtn">Log Out</Link></h5></li>
                         </div>
                     ): (
                         <div className="nav nav-pills navbar-right">
