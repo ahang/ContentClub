@@ -12,7 +12,7 @@ import Header from './layout/Header.js';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       boards: [],
       selectedBoard: null,
     };
@@ -21,26 +21,26 @@ class Dashboard extends Component {
   }
 
 componentWillMount() {
-  console.log("COMPONENT MOUNTED");
+  //console.log("COMPONENT MOUNTED");
 
         // As the page loads, grab the articles that already exist in the database
   helpers.getBoards()
-  .then((response) => {    
+  .then((response) => {
     this.setState({
       boards: response.data
-    });                
-    console.log("RESULTS", response);
-    console.log("state", this.state.boards);     
+    });
+    //console.log("RESULTS", response);
+    //console.log("state", this.state.boards);
   })
   }
-    
+
 
   getOneBoard (e) {
-    console.log("dataset: " + e.target.dataset.id);
+    //console.log("dataset: " + e.target.dataset.id);
     helpers.getOneBoard({id: e.target.dataset.id}
     ).then((res) => {
       this.setState({selectedBoard: res})
-      console.log("This is the board! " + JSON.stringify(this.state.selectedBoard));
+      //console.log("This is the board! " + JSON.stringify(this.state.selectedBoard));
     })
   }
 
@@ -51,16 +51,16 @@ componentWillMount() {
           <div className="board item card">
             <div className="title-name">
               <figure className="board-img img-boxart">
-                <Link to={`/board/${board._id}`}><img 
-                  className="img-art" 
-                  data-id={board._id} 
-                  src={board.contentURL} 
-                  alt={board.contentDescription} 
+                <Link to={`/board/${board._id}`}><img
+                  className="img-art"
+                  data-id={board._id}
+                  src={board.contentURL}
+                  alt={board.contentDescription}
                   title={board.contentDescription}
                   value = {board._id}/>{board.boardTitle}
                 </Link>
               </figure>
-            <div className="board-body-text"> 
+            <div className="board-body-text">
               <h3 className="board-title">{board.boardTitle}</h3>
               <p className="board-info">{board.category}</p>
               <br />
@@ -68,7 +68,7 @@ componentWillMount() {
 
             </div>
           </div>
-        </div>                 
+        </div>
       )
     })
   }

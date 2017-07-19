@@ -48,8 +48,8 @@ class Board extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state.newComment)
-    console.log("id is " + e.target.dataset.id)
+    //console.log(this.state.newComment)
+    //console.log("id is " + e.target.dataset.id)
     helpers.postComment({id: e.target.dataset.id, author: this.state.user, text: this.state.newComment})
     .then((result) => {
       this.setState({newComment: ''});
@@ -57,17 +57,17 @@ class Board extends Component {
       helpers.getOneBoard({
         id: match.params.id
       }).then((res) => {
-        console.log("res is " + JSON.stringify(res));
+        //console.log("res is " + JSON.stringify(res));
         this.setState({currentBoard: res})
-        console.log("this state is: " + this.state.currentBoard)
+        //console.log("this state is: " + this.state.currentBoard)
         })
     })
   }
 
   handleReplySubmit(e) {
     e.preventDefault()
-    console.log(this.newReply.value)
-    console.log("id is " + e.target.dataset.id)
+    //console.log(this.newReply.value)
+    //console.log("id is " + e.target.dataset.id)
     helpers.postReply({id: e.target.dataset.id, author: this.state.user, text: this.newReply.value})
     .then((result) => {
       this.newReply.value = "";
@@ -75,9 +75,9 @@ class Board extends Component {
       helpers.getOneBoard({
         id: match.params.id
       }).then((res) => {
-        console.log("res is " + JSON.stringify(res));
+        //console.log("res is " + JSON.stringify(res));
         this.setState({currentBoard: res})
-        console.log("this state is: " + this.state.currentBoard)
+        //console.log("this state is: " + this.state.currentBoard)
         })
       })
   }

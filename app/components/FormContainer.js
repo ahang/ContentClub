@@ -79,8 +79,8 @@ class FormContainer extends Component {
     };
     helpers.saveBoard(boardSubmit)
       .then((result) => {
-        console.log('new form was created:', boardSubmit);
-        console.log(result);
+        //console.log('new form was created:', boardSubmit);
+        //console.log(result);
         this.setState({
           boardId: result.data._id,
           redirect: true });

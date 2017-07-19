@@ -36,14 +36,14 @@ class Login extends Component {
 	  "username": this.state.username,
 	  "password": this.state.password
 	}).then((response) => {
-	  console.log(JSON.stringify(response));
+	  //console.log(JSON.stringify(response));
 	  Auth.authenticateUser(response.data.token);
 	  this.setState({ redirect: true });
 	})
   }
 
   handleInputChange(event) {
-    console.log(event.target);
+    //console.log(event.target);
 	const value = event.target.value;
 	const name = event.target.name;
 	this.setState({
