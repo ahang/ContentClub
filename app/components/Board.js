@@ -103,8 +103,29 @@ class Board extends Component {
                   </div>
                 )
               })}
+            </div>
+            <form>
+              <div className="form-group">
+                <br />
+                <h5 htmlFor="name">Comment:</h5>
+                <textarea
+                  className="form-control"
+                  rows="5"
+                  value={this.state.newComment} // input is now a controlled component, value set by state
+                  name="newComment"
+                  onChange={this.onChange}
+                  required />
               </div>
-
+              <center>
+              <button
+                data-id={board._id}
+                onClick = {this.handleSubmit}
+                className="btn commentBtn">
+                Submit
+              </button>
+              </center>
+            </form>
+        
             <form>
               <div className="form-group">
                 <h5 htmlFor="name">Reply:</h5>
@@ -130,27 +151,6 @@ class Board extends Component {
           )
         })}
         </div>
-        <form>
-          <div className="form-group">
-            <br />
-            <h5 htmlFor="name">Comment:</h5>
-            <textarea
-              className="form-control"
-              rows="5"
-              value={this.state.newComment} // input is now a controlled component, value set by state
-              name="newComment"
-              onChange={this.onChange}
-              required />
-          </div>
-          <center>
-          <button
-            data-id={board._id}
-            onClick = {this.handleSubmit}
-            className="btn commentBtn">
-            Submit
-          </button>
-          </center>
-        </form>
       </div>
     )
   }
