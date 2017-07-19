@@ -7,7 +7,6 @@ import Auth from "./Auth"
 class Login extends Component {
   constructor(props) {
     super(props);
-
 	this.state = {
 	  username: "",
 	  password: "",
@@ -15,7 +14,6 @@ class Login extends Component {
 	  response: null,
 	  redirect: false
 	};
-
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.handleInputChange = this.handleInputChange.bind(this);
 	this.loadSuccessMessage = this.loadSuccessMessage.bind(this);
@@ -23,7 +21,7 @@ class Login extends Component {
 
   componentDidMount() {
   	if (localStorage.getItem("successMessage")) {
-  		this.setState({ justReg: true });
+  	  this.setState({ justReg: true });
   	}
   }
 
@@ -38,17 +36,16 @@ class Login extends Component {
 	  "username": this.state.username,
 	  "password": this.state.password
 	}).then((response) => {
-		console.log(JSON.stringify(response));
-		Auth.authenticateUser(response.data.token);
-		this.setState({ redirect: true });
-	  })
+	  console.log(JSON.stringify(response));
+	  Auth.authenticateUser(response.data.token);
+	  this.setState({ redirect: true });
+	})
   }
 
   handleInputChange(event) {
     console.log(event.target);
 	const value = event.target.value;
 	const name = event.target.name;
-
 	this.setState({
 	  [name]: value
 	});
