@@ -16,10 +16,13 @@ class Board extends Component {
       user: null,
       currentBoard: null,
       comments: '',
-      newComment: ''
+      newComment: '',
+      newReply: [""],
+      newReplyText: null
     }
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    /*this.handleReplyChange = this.handleReplyChange.bind(this);*/
     this.handleReplySubmit = this.handleReplySubmit.bind(this);
     this.setUser = this.setUser.bind(this);
   }
@@ -46,6 +49,16 @@ class Board extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  handleReplyChange (i,e) {
+    let stateCopy = this.state
+    stateCopy.newReply = stateCopy.newReply.slice();
+    stateCopy.newReply[i] = e.target.value
+    console.log(stateCopy);
+    this.setState(stateCopy);
+    this.setState({newReplyText: e.target.value})
+    console.log(this.state.newReply);
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     //console.log(this.state.newComment)
@@ -66,17 +79,25 @@ class Board extends Component {
 
   handleReplySubmit(e) {
     e.preventDefault()
-    //console.log(this.newReply.value)
+    console.log(this.state.newReplyText)
+    let text = ""
+    for (let i = 0; i < this.state.newReply.length; i++) {
+      if (this.state.newReply[i]) {
+        text = this.state.newReply[i]
+      }
+    }
+    console.log(text)
     //console.log("id is " + e.target.dataset.id)
-    helpers.postReply({id: e.target.dataset.id, author: this.state.user, text: this.newReply.value})
+    helpers.postReply({id: e.target.dataset.id, author: this.state.user, text: text})
     .then((result) => {
-      this.newReply.value = "";
+      this.setState({newReply: [], newReplyText: null});
       const { match } = this.props;
       helpers.getOneBoard({
         id: match.params.id
       }).then((res) => {
         //console.log("res is " + JSON.stringify(res));
         this.setState({currentBoard: res})
+        console.log(this.state)
         //console.log("this state is: " + this.state.currentBoard)
         })
       })
@@ -92,9 +113,9 @@ class Board extends Component {
           <p className="contentDescription">{board.contentDescription}</p>
         </center>
         <div className="commentContent">
-          {board.comments.map((comment) => {
+          {board.comments.map((comment, i) => {
           return (
-            <div key={comment._id}>
+            <div key={i}>
               <h3>{comment.text} - {comment.author}</h3>
               <div>{comment.replies.map((reply) => {
                 return (
@@ -109,18 +130,18 @@ class Board extends Component {
               <div className="form-group">
                 <h5 htmlFor="name">Reply:</h5>
                   <input
-                    /*reply form is not a controlled component to avoid same text repeated in all reply fields*/
+                    /*trying to control the reply form*/
                     className="form-control"
-                    ref={input => this.newReply = input}
-                    /*value={this.state.newReply}
-                    name="newReply"
-                    onChange={this.onChange}*/
+                    
+                    value={this.state.newReply[i]}
+                    /*name="newReply[i]"*/
+                    onChange={this.handleReplyChange.bind(this, i)}
                     required />
               </div>
               <center>
               <button
                 data-id={comment._id}
-                onClick={this.handleReplySubmit}
+                onClick={this.handleReplySubmit.bind(this)}
                 className="btn replyBtn">
                 Reply
               </button>
