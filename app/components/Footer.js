@@ -10,8 +10,8 @@ class Footer extends Component {
   	  <div className="container container-fluid">
   	    <div className="col-md-12 footer">
         <center>
-        <h4><a href="https://github.com/ahang/ContentClub">See the code</a></h4>
-        <h4>© Alita Kendrick, Andy Hang, Karel Hartlieb, Liam Fox</h4> 
+        <p><a href="https://github.com/ahang/ContentClub">See the code</a></p>
+        <p>© Alita Kendrick, Andy Hang, Karel Hartlieb, Liam Fox</p> 
   	    </center>
         </div>
   	  </div>

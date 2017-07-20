@@ -95,15 +95,7 @@ class Board extends Component {
           {board.comments.map((comment) => {
           return (
             <div key={comment._id}>
-              <h3>{comment.text} - {comment.author}</h3>
-              <div>{comment.replies.map((reply) => {
-                return (
-                  <div key={reply._id}>
-                  <h4>{reply.text} - {reply.author}</h4>
-                  </div>
-                )
-              })}
-            </div>
+
             <form>
               <div className="form-group">
                 <br />
@@ -125,6 +117,17 @@ class Board extends Component {
               </button>
               </center>
             </form>
+
+              <h3>{comment.text} - {comment.author}</h3>
+              <div>{comment.replies.map((reply) => {
+                return (
+                  <div key={reply._id}>
+                  <h4>{reply.text} - {reply.author}</h4>
+                  </div>
+                )
+              })}
+            </div>
+
         
             <form>
               <div className="form-group">

@@ -25,9 +25,9 @@ class Header extends Component {
         return (
             <nav className="nav navbar navbar-collapse collapse">
                     <ul className=" nav navbar-brand navbar-left navbar-collapse">
-                            <a className="" href="/dashboard">
+                            <Link to="/" className="btn headerBtn">
                                 <img id='logo' src='css/images/logo-white-sm.png' height="30" width="30" />
-                            </a>
+                            </Link>
                     </ul>                    
                     {Auth.isUserAuthenticated() ? (
                         <ul className="nav navbar-nav navbar-right">
