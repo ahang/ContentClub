@@ -38,6 +38,7 @@ class Login extends Component {
 	}).then((response) => {
 	  //console.log(JSON.stringify(response));
 	  Auth.authenticateUser(response.data.token);
+      localStorage.removeItem("successMessage");
 	  this.setState({ redirect: true });
 	})
   }
