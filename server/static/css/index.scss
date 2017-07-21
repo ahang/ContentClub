@@ -151,6 +151,18 @@ li {
 	color: #0c0032;
 }
 
+.form-control  {
+  border: 0;
+  border-radius: 0;
+  /*outline: 0;*/
+  background: transparent;
+  border-bottom: 1px solid lightgray;
+  width: 200px;
+  box-shadow: none;
+  font-size: 10px;
+  font-family: 'Raleway';
+}
+
 .submitBtn, .goBackBtn, .registerBtn {
     margin-top: 3%;
     margin-left: 1%;

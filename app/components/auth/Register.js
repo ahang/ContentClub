@@ -49,7 +49,7 @@ class Register extends Component {
 		<form className="form-group" onSubmit={this.handleSubmit}>
 		  <div>
 			<label>
-			  Username:
+			  
 			  <input
 				name="username"
 				placeholder="Username"
@@ -60,7 +60,7 @@ class Register extends Component {
 			</label>
 			<br />
 		    <label>
-			  Password:
+			  
 		      <input
 				name="password"
 				placeholder="Password"

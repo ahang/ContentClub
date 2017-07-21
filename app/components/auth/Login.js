@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Auth from "./Auth"
+import FlipCard from 'react-flipcard'
 
 class Login extends Component {
   constructor(props) {
@@ -18,6 +19,39 @@ class Login extends Component {
 	this.handleInputChange = this.handleInputChange.bind(this);
 	this.loadSuccessMessage = this.loadSuccessMessage.bind(this);
   }
+
+  getInitialState(){
+  	return {
+  		isFlipped: false
+  	};
+  };
+
+  showBack() {
+  	this.setState({
+  		isFlipped: true
+  	});
+  };
+
+  showfront(){
+  	this.setState({
+  		isFlipped: false
+  	});
+  };
+
+  handleOnFlip(flipped) {
+  	if(flipped) {
+  		if(flipped) {
+  			this.refs.backButton.getDomNode().focus();
+  		}
+  	}
+  }
+
+  handleKeyDown(e) {
+  	if(this.state.isFlipped && e.keyCode === 27){
+  		this.showFront();
+  	}
+  }
+
 
   componentDidMount() {
   	if (localStorage.getItem("successMessage")) {
@@ -59,13 +93,22 @@ class Login extends Component {
 	return(
 	  <div className="container loginForm col-md-8 col-centered">
 	    <center>
+
+       
 	    <h3> Login to view your dashboard </h3>
 	    { this.state.justReg ? this.loadSuccessMessage() : <div></div>}
 		<form className="form-group" onSubmit={this.handleSubmit}>
+		  
 		  <div>
+		  	<FlipCard
+          disabled={true}
+          flipped={this.state.isFlipped}
+          onFlip={this.handleOnFlip}
+          onKeyDown={this.handleKeyDown}
+        >
 			<label>
-			  Username:
 			  <input
+			  	onClick={this.showBack}
 				name="username"
 				placeholder="Username"
 				className="form-control"
@@ -74,8 +117,8 @@ class Login extends Component {
 				onChange={this.handleInputChange} />
 			</label>
 			<br />
+			</FlipCard>
 			<label>
-			  Password:
 			  <input
 				name="password"
 				placeholder="Password"
