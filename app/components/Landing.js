@@ -7,10 +7,9 @@ import { Link } from "react-router-dom";
 class Landing extends Component {
   render() {
   	return (
- 	      <center className="background-content landing-position">
+ 	      <center className="background-content landing-background landing-position">
           <div className="text-align-center">
             <h1>  
-
                 CONTENT CLUB          
             </h1>
             <Link to="/register" className="btn landingBtn ">GET STARTED</Link>
