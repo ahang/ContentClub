@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Auth from "./Auth"
-import FlipCard from 'react-flipcard'
+import Auth from "./Auth";
+
+import FlipCard from 'react-flipcard';
 
 class Login extends Component {
   constructor(props) {
@@ -20,36 +21,34 @@ class Login extends Component {
 	this.loadSuccessMessage = this.loadSuccessMessage.bind(this);
   }
 
-  getInitialState(){
-  	return {
-  		isFlipped: false
-  	};
-  };
+  getInitialState() {
+    return {
+      isFlipped: false
+    };
+  }
 
   showBack() {
-  	this.setState({
-  		isFlipped: true
-  	});
-  };
+    this.setState({
+      isFlipped: true
+    });
+  }
 
-  showfront(){
-  	this.setState({
-  		isFlipped: false
-  	});
-  };
+  showFront() {
+    this.setState({
+      isFlipped: false
+    });
+  }
 
   handleOnFlip(flipped) {
-  	if(flipped) {
-  		if(flipped) {
-  			this.refs.backButton.getDomNode().focus();
-  		}
-  	}
+    if (flipped) {
+      this.refs.backButton.getDOMNode().focus();
+    }
   }
 
   handleKeyDown(e) {
-  	if(this.state.isFlipped && e.keyCode === 27){
-  		this.showFront();
-  	}
+    if (this.state.isFlipped && e.keyCode === 27) {
+      this.showFront();
+    }
   }
 
 
@@ -91,55 +90,55 @@ class Login extends Component {
 	  return <Redirect to="/dashboard" />;
 	}
 	return(
-	  <div className="container loginForm col-md-8 col-centered">
-	    <center>
 
-       
-	    <h3> Login to view your dashboard </h3>
-	    { this.state.justReg ? this.loadSuccessMessage() : <div></div>}
-		<form className="form-group" onSubmit={this.handleSubmit}>
-		  
-		  <div>
-		  	<FlipCard
-          disabled={true}
-          flipped={this.state.isFlipped}
-          onFlip={this.handleOnFlip}
-          onKeyDown={this.handleKeyDown}
-        >
-			<label>
-			  <input
-			  	onClick={this.showBack}
-				name="username"
-				placeholder="Username"
-				className="form-control"
-				type="text"
-				value={this.state.username}
-				onChange={this.handleInputChange} />
-			</label>
-			<br />
-			</FlipCard>
-			<label>
-			  <input
-				name="password"
-				placeholder="Password"
-				className="form-control"
-				type="password"
-				value={this.state.password}
-				onChange={this.handleInputChange} />
-			</label>
-			<br />
-			<div className="row">
-		    <Link to="/" className="btn goBackBtn">Go Back</Link>
-		    <input
-			  className="btn submitBtn"
-			  type="submit"
-			  value="Login" />
-		    </div>
-		  </div>
-		</form>
+		<div className="container loginForm col-md-8 col-centered">
+		    <center>
+			    <h3> Login to view your dashboard </h3>
+			    
+			    { this.state.justReg ? this.loadSuccessMessage() : <div></div>}
+				
+				<form className="form-group" onSubmit={this.handleSubmit}>
+				  <div>
+				  	<FlipCard
+		          disabled={true}
+		          flipped={this.state.isFlipped}
+		          onFlip={this.handleOnFlip}
+		          onKeyDown={this.handleKeyDown}
+		        >
+					<label>
+					  <input
+					  	onClick={this.showBack}
+						name="username"
+						placeholder="Username"
+						className="form-control"
+						type="text"
+						value={this.state.username}
+						onChange={this.handleInputChange} />
+					</label>
+					<br />
+					</FlipCard>
+					<label>
+					  <input
+						name="password"
+						placeholder="Password"
+						className="form-control"
+						type="password"
+						value={this.state.password}
+						onChange={this.handleInputChange} />
+					</label>
+					<br />
+					<div className="row">
+				    <Link to="/" className="btn goBackBtn">Go Back</Link>
+				    <input
+					  className="btn submitBtn"
+					  type="submit"
+					  value="Login" />
+				    </div>
+				  </div>
+				</form>
+			</center>
+		</div>
 
-		</center>
-	  </div>
 	)
   }
 }
