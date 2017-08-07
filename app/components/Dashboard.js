@@ -45,55 +45,59 @@ componentWillMount() {
     }
 
     generateImage () {
-        return this.state.boards.map((board) => {
-            return (
-               <div className="full-board col-sm-3 off-set-3" key={board.boardTitle} id={board._id}>
-                    <div className="board-card item card">
-                        <div className="title-name ">
-                            <figure className="board-img img-boxart">
+        // return this.state.boards.map((board) => {
 
-                                <Link to={`/board/${board._id}`}><img
-                                    className="img-art"
-                                    data-id={board._id}
-                                    src={board.contentURL}
-                                    alt={board.contentDescription}
-                                    title={board.contentDescription}
-                                    value = {board._id}/>{board.boardTitle}
-                                </Link>
+               // <div className="full-board col-sm-3 off-set-3" key={board.boardTitle} id={board._id}>
+               //      <div className="board-card item card">
+               //          <div className="title-name ">
+               //              <figure className="board-img img-boxart">
 
-                            </figure>
-                            <div className="board-body-text">
-                                <h3 className="board-title">{board.boardTitle}</h3>
-                                <p className="board-info">{board.category}</p>
-                                <br />
+               //                  <Link to={`/board/${board._id}`}><img
+               //                      className="img-art"
+               //                      data-id={board._id}
+               //                      src={board.contentURL}
+               //                      alt={board.contentDescription}
+               //                      title={board.contentDescription}
+               //                      value = {board._id}/>{board.boardTitle}
+               //                  </Link>
+
+               //              </figure>
+               //              <div className="board-body-text">
+               //                  <h3 className="board-title">{board.boardTitle}</h3>
+               //                  <p className="board-info">{board.category}</p>
+               //                  <br />
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        })
+               //              </div>
+               //          </div>
+               //      </div>
+               //  </div>
+            // )
+        // })
     }
 
     render() {
         return (
-            <div>
-                
+            <div>                
                 <Header />
-                
-                <div className="container">
-                    <div className="col-sm-12">
-                        { /* This is what actually generates the images */ }
-                        <div className="dashboard-background">
-                            <h1 className="dashboard-header">Dashboard</h1>
+             
+                <div className="container-fliud">
+                    <div class="row">
+                    
+                        <div className="col-sm-3 off-set-3">
+                            <p>"1/3"</p>
                         </div>
-                        <div className="full-background">
-                            { this.state.selectedBoard ? <Board something={this.state.selectedBoard}/>:<div></div>}
-                            { this.generateImage() }
+     
+                        <div className="col-sm-3 off-set-3">
+                            <p>"1/3"</p>
+                        </div>
+
+                        <div className="col-sm-3 off-set-3">
+                            <p>"1/3"</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         );
     }
